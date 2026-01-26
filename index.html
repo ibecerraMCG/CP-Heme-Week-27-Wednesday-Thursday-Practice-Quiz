@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 27 Wednesday and Thursday Practice Quiz</title>
+    <style>
+        /* --- CSS Variables & Themes --- */
+        :root {
+            /* Base Transition */
+            --transition-speed: 0.3s;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* 1. Modern Dark (Default) */
+        [data-theme="dark"] {
+            --bg-body: #1e293b;
+            --bg-card: #334155;
+            --bg-header: #0f172a;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --text-accent: #38bdf8;
+            --border-color: #475569;
+            --highlight-bg: #475569;
+            --button-bg: #38bdf8;
+            --button-text: #0f172a;
+            --button-hover: #0ea5e9;
+            --feedback-success-bg: #064e3b;
+            --feedback-success-border: #059669;
+            --feedback-success-text: #a7f3d0;
+            --feedback-error-bg: #7f1d1d;
+            --feedback-error-border: #dc2626;
+            --feedback-error-text: #fecaca;
+        }
+
+        /* 2. Modern Light */
+        [data-theme="light"] {
+            --bg-body: #f3f4f6;
+            --bg-card: #ffffff;
+            --bg-header: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --text-accent: #2563eb;
+            --border-color: #e5e7eb;
+            --highlight-bg: #f3f4f6;
+            --button-bg: #2563eb;
+            --button-text: #ffffff;
+            --button-hover: #1d4ed8;
+            --feedback-success-bg: #ecfdf5;
+            --feedback-success-border: #34d399;
+            --feedback-success-text: #065f46;
+            --feedback-error-bg: #fef2f2;
+            --feedback-error-border: #f87171;
+            --feedback-error-text: #991b1b;
+        }
+
+        /* 3. Midnight (Pure Black) */
+        [data-theme="midnight"] {
+            --bg-body: #000000;
+            --bg-card: #000000;
+            --bg-header: #000000;
+            --text-main: #e0e0e0;
+            --text-muted: #888888;
+            --text-accent: #90caf9;
+            --border-color: #333333;
+            --highlight-bg: #1a1a1a;
+            --button-bg: #90caf9;
+            --button-text: #000000;
+            --button-hover: #42a5f5;
+            --feedback-success-bg: #051b11;
+            --feedback-success-border: #0f5132;
+            --feedback-success-text: #75b798;
+            --feedback-error-bg: #2c0b0e;
+            --feedback-error-border: #842029;
+            --feedback-error-text: #ea868f;
+        }
+
+        /* 4. Legacy Dark (Original) */
+        [data-theme="legacy-dark"] {
+            --bg-body: #2d343e;
+            --bg-card: #3c424f;
+            --bg-header: #3c424f;
+            --text-main: #e8e6e3;
+            --text-muted: #b0c4de;
+            --text-accent: #8ab4f8;
+            --border-color: #555;
+            --highlight-bg: #454c5a;
+            --button-bg: #8ab4f8;
+            --button-text: #202124;
+            --button-hover: #a3c5f9;
+            --feedback-success-bg: #344e41;
+            --feedback-success-border: #52b788;
+            --feedback-success-text: #c7f9cc;
+            --feedback-error-bg: #5e2129;
+            --feedback-error-border: #a4133c;
+            --feedback-error-text: #f8d7da;
+        }
+
+        /* 5. Sepia (Reading Mode) */
+        [data-theme="sepia"] {
+            --bg-body: #f4ecd8;
+            --bg-card: #fdf6e3;
+            --bg-header: #e4d5b7;
+            --text-main: #433422;
+            --text-muted: #7c6f5a;
+            --text-accent: #a05a2c;
+            --border-color: #d3c4a5;
+            --highlight-bg: #ebe1c9;
+            --button-bg: #a05a2c;
+            --button-text: #fdf6e3;
+            --button-hover: #864822;
+            --feedback-success-bg: #e6f4ea;
+            --feedback-success-border: #8ab893;
+            --feedback-success-text: #2e4c35;
+            --feedback-error-bg: #f9e3e3;
+            --feedback-error-border: #d48f8f;
+            --feedback-error-text: #5c2b2b;
+        }
+
+        /* 6. High Contrast */
+        [data-theme="contrast"] {
+            --bg-body: #000000;
+            --bg-card: #000000;
+            --bg-header: #000000;
+            --text-main: #ffffff;
+            --text-muted: #dddddd;
+            --text-accent: #ffff00;
+            --border-color: #ffffff;
+            --highlight-bg: #333333;
+            --button-bg: #ffff00;
+            --button-text: #000000;
+            --button-hover: #e6e600;
+            --feedback-success-bg: #000000;
+            --feedback-success-border: #00ff00;
+            --feedback-success-text: #00ff00;
+            --feedback-error-bg: #000000;
+            --feedback-error-border: #ff0000;
+            --feedback-error-text: #ff0000;
+        }
+
+        /* --- Global Reset & Layout --- */
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-main);
+            margin: 0;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            line-height: 1.6;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--bg-header);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* Default to Sticky */
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Class to remove sticky behavior */
+        header.unpinned {
+            position: relative;
+            box-shadow: none;
+        }
+
+        header h1 {
+            font-size: 1.25rem;
+            margin: 0;
+            color: var(--text-accent);
+        }
+
+        .controls-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .pin-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        .pin-btn:hover {
+            background-color: var(--highlight-bg);
+        }
+
+        .pin-btn.pin-active {
+            color: var(--text-accent);
+            border-color: var(--text-accent);
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        select#theme-select {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        /* --- Main Content --- */
+        .container {
+            max-width: 850px;
+            margin: 2rem auto;
+            padding: 0 1rem 4rem 1rem;
+        }
+
+        .section-header {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--text-accent);
+            color: var(--text-accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* --- Question Card --- */
+        .question-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .lo-box {
+            background-color: var(--highlight-bg);
+            border-left: 4px solid var(--text-accent);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Options --- */
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: var(--highlight-bg);
+            border-color: var(--text-muted);
+        }
+
+        .option-label input {
+            margin-top: 0.3rem;
+            margin-right: 1rem;
+            accent-color: var(--text-accent);
+            transform: scale(1.2);
+        }
+
+        /* --- Buttons --- */
+        .btn-check {
+            margin-top: 1.5rem;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-check:hover {
+            opacity: 0.9;
+        }
+
+        /* --- Feedback Area --- */
+        .feedback {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: none; /* Hidden by default */
+            border: 1px solid transparent;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feedback.correct {
+            background-color: var(--feedback-success-bg);
+            border-color: var(--feedback-success-border);
+            color: var(--feedback-success-text);
+        }
+
+        .feedback.incorrect {
+            background-color: var(--feedback-error-bg);
+            border-color: var(--feedback-error-border);
+            color: var(--feedback-error-text);
+        }
+
+        .feedback-header {
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .rationale {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .source {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-style: italic;
+            border-top: 1px dashed currentColor;
+            padding-top: 0.5rem;
+        }
+
+        /* --- Mobile Tweaks --- */
+        @media (max-width: 600px) {
+            header { padding: 1rem; flex-direction: column; gap: 10px; align-items: flex-start; }
+            .controls-wrapper { width: 100%; justify-content: space-between; }
+            .question-card { padding: 1.5rem; }
+            header h1 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <h1>Week 27 Wednesday and Thursday Practice Quiz</h1>
+        <div class="controls-wrapper">
+            <!-- Pin Button -->
+            <button class="pin-btn pin-active" id="pin-btn" onclick="toggleHeader()" title="Pin/Unpin Header">
+                📍
+            </button>
+            
+            <div class="theme-control">
+                <label for="theme-select">Theme:</label>
+                <select id="theme-select" onchange="changeTheme(this.value)">
+                    <option value="dark">Modern Dark</option>
+                    <option value="midnight">Midnight</option>
+                    <option value="light">Modern Light</option>
+                    <option value="legacy-dark">Legacy Dark</option>
+                    <option value="sepia">Sepia</option>
+                    <option value="contrast">High Contrast</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" id="quiz-root">
+        <!-- Content injected via JS -->
+    </div>
+
+    <script>
+        // --- Data ---
+        const quizData = [
+            // --- Section 1: Valvular Heart Disease ---
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "Inferred LO: Identify the clinical findings, causes, and management of [specific valve disorder].",
+                fullLO: "Inferred LO: Identify the clinical findings, causes, and management of Aortic Stenosis.",
+                question: "A 78-year-old male presents with exertional syncope. Physical examination reveals a late-peaking systolic murmur at the right upper sternal border and a diminished second heart sound (S2). Carotid pulses are weak and delayed (pulsus parvus et tardus). Which of the following is the most likely etiology of this patient's valvular pathology?",
+                options: {
+                    A: "Bicuspid aortic valve",
+                    B: "Degenerative calcification (senile)",
+                    C: "Infective endocarditis",
+                    D: "Rheumatic heart disease",
+                    E: "Syphilitic aortitis"
+                },
+                correctAnswer: "B",
+                rationale: "Degenerative aortic stenosis is the most common cause of aortic stenosis, particularly in patients aged 65 years and older. Bicuspid valves typically present earlier (60s), while rheumatic disease almost always involves the mitral valve.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 15: \"Degenerative aortic stenosis (senile) -> most common... Severe AS in ~3% of persons aged 65 years and older\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "Inferred LO: Identify the clinical findings, causes, and management of [specific valve disorder].",
+                fullLO: "Inferred LO: Identify the clinical findings, causes, and management of Aortic Stenosis.",
+                question: "A 72-year-old female with severe aortic stenosis (valve area 0.7 cm²) reports increasing dyspnea while walking. She is evaluated by the heart team and found to have a high surgical risk due to comorbidities (STS score > 8%). Which intervention is most appropriate for this patient?",
+                options: {
+                    A: "Balloon valvuloplasty",
+                    B: "Medical management with ACE inhibitors",
+                    C: "Surgical Aortic Valve Replacement (SAVR)",
+                    D: "Transcatheter Aortic Valve Replacement (TAVR)",
+                    E: "Watchful waiting"
+                },
+                correctAnswer: "D",
+                rationale: "For patients with severe symptomatic aortic stenosis, valve replacement is indicated. The choice between SAVR and TAVR is based on surgical risk; TAVR is often preferred or equivalent in high-risk patients.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 24: \"The choice between surgical and transcatheter interventions is based on the patient's surgical risk... SAVR and TAVR have similar procedural and long-term survival rates\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "Inferred LO: Identify the clinical findings, causes, and management of [specific valve disorder].",
+                fullLO: "Inferred LO: Identify the clinical findings, causes, and management of Aortic Stenosis.",
+                question: "A patient with severe aortic stenosis is asymptomatic. An exercise stress test is performed, which the patient tolerates poorly, developing hypotension and arrhythmia. Based on these findings, which of the following is the most appropriate management recommendation?",
+                options: {
+                    A: "Annual echocardiogram",
+                    B: "Beta-blocker therapy",
+                    C: "Consideration for Aortic Valve Replacement (AVR)",
+                    D: "Diuretic therapy",
+                    E: "Restriction of physical activity only"
+                },
+                correctAnswer: "C",
+                rationale: "AVR can be considered in asymptomatic patients with abnormal results on supervised exercise testing, such as poor exercise tolerance, arrhythmia, or hypotension.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 23: \"AVR can be considered in asymptomatic patients with abnormal results on supervised exercise testing... abnormal electrocardiographic changes, arrhythmia or hypotension during testing\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "Inferred LO: Identify the clinical findings and pathophysiology of [specific valve disorder].",
+                fullLO: "Inferred LO: Identify the clinical findings and pathophysiology of Mitral Regurgitation.",
+                question: "A 55-year-old male presents with worsening heart failure symptoms. He has a history of dilated cardiomyopathy with an ejection fraction of 30%. Echocardiography shows the mitral valve leaflets are structurally normal, but there is significant regurgitation due to dilation of the mitral annulus and tethering of the leaflets. This type of mitral regurgitation is best classified as:",
+                options: {
+                    A: "Acute primary",
+                    B: "Acute secondary",
+                    C: "Chronic primary",
+                    D: "Chronic secondary",
+                    E: "Rheumatic"
+                },
+                correctAnswer: "D",
+                rationale: "Secondary mitral regurgitation is not a valve problem but a ventricular problem (e.g., cardiomyopathy) leading to annular dilation and leaflet tethering/impaired coaptation.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 41: \"Chronic secondary mitral regurgitation: Not a valve problem, but a ventricular or atrial problem... LV cardiomyopathy causing ventricular enlargement and annular dilation... incomplete leaflet coaptation\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "Inferred LO: Identify the clinical findings and pathophysiology of [specific valve disorder].",
+                fullLO: "Inferred LO: Identify the clinical findings and pathophysiology of Mitral Regurgitation.",
+                question: "A 24-year-old female presents with palpitations. On auscultation, a mid-systolic click is heard, followed by a late systolic murmur. The murmur intensity increases with standing. What is the underlying pathology of the mitral valve leaflets in this condition?",
+                options: {
+                    A: "Calcification",
+                    B: "Endocardial cushion defect",
+                    C: "Fibrotic thickening",
+                    D: "Myxomatous degeneration",
+                    E: "Vegetations"
+                },
+                correctAnswer: "D",
+                rationale: "This presentation is classic for Mitral Valve Prolapse (MVP). The morphology involves intrinsic accumulation of loose (myxomatous) connective tissue within the leaflets.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 45: \"Mitral Valve Prolapse... Morphology: Intrinsic accumulation of loose (myxomatous) connective tissue within leaflets\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "Inferred LO: Identify the clinical findings and pathophysiology of [specific valve disorder].",
+                fullLO: "Inferred LO: Identify the clinical findings and pathophysiology of Mitral Regurgitation.",
+                question: "A patient with severe primary mitral regurgitation is asymptomatic. Echocardiography reveals a Left Ventricular Ejection Fraction (LVEF) of 55%. Which of the following is the correct interpretation and management based on this finding?",
+                options: {
+                    A: "LVEF is normal; continue observation.",
+                    B: "LVEF is normal; initiate beta-blocker therapy.",
+                    C: "LVEF indicates LV dysfunction; consider surgery.",
+                    D: "LVEF indicates severe dysfunction; surgery is contraindicated.",
+                    E: "LVEF is irrelevant in mitral regurgitation."
+                },
+                correctAnswer: "C",
+                rationale: "In severe primary mitral regurgitation, an LVEF < 60% indicates a decline in LV function and is an indication for intervention, as the \"normal\" EF in MR should be higher due to unloading into the left atrium.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 47: \"Look for decline in LV function (<60%)... Symptomatic, chronic severe primary mitral regurgitation generally do poorly without intervention\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "Inferred LO: Identify the clinical findings and pathophysiology of [specific valve disorder].",
+                fullLO: "Inferred LO: Identify the clinical findings and pathophysiology of Aortic Regurgitation.",
+                question: "A 60-year-old male presents for a routine checkup. Physical examination reveals a bounding peripheral pulse and a widened pulse pressure. Auscultation demonstrates a diastolic decrescendo murmur heard best along the left sternal border. Which of the following hemodynamic changes is the primary cause of the physical findings in this patient?",
+                options: {
+                    A: "Impaired ventricular filling in diastole",
+                    B: "Increased left ventricular stroke volume",
+                    C: "Increased pulmonary vascular resistance",
+                    D: "Left ventricular concentric hypertrophy",
+                    E: "Right ventricular pressure overload"
+                },
+                correctAnswer: "B",
+                rationale: "In chronic aortic regurgitation, the physical exam findings (bounding pulses) result from the large stroke volume and left ventricular dilatation caused by volume overload.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 28: \"Physical exam: Results from the large stroke volume and LV dilatation... Bounding peripheral pulses... Diastolic decrescendo murmur\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "Inferred LO: Identify the clinical findings and pathophysiology of [specific valve disorder].",
+                fullLO: "Inferred LO: Identify the clinical findings and pathophysiology of Aortic Regurgitation.",
+                question: "A 45-year-old male presents to the emergency department with severe, tearing chest pain radiating to the back. He is hypotensive and dyspneic. Auscultation reveals a new soft, short diastolic murmur. Which of the following is the most likely etiology of this valvular pathology?",
+                options: {
+                    A: "Aortic dissection",
+                    B: "Bicuspid aortic valve",
+                    C: "Calcific degeneration",
+                    D: "Rheumatic valvular disease",
+                    E: "Systemic lupus erythematosus"
+                },
+                correctAnswer: "A",
+                rationale: "Acute aortic regurgitation due to aortic dissection is a surgical emergency. The murmur in acute AR may be soft or short due to rapid equalization of pressures.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Pages 27 & 30: \"Acute aortic regurgitation due to aortic dissection is a surgical emergency... Causes of aortic regurgitation: Ascending aortic root dilatation... Aortic dissection\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "Inferred LO: Identify the clinical findings and pathophysiology of [specific valve disorder].",
+                fullLO: "Inferred LO: Identify the clinical findings and pathophysiology of Aortic Regurgitation.",
+                question: "For a patient with chronic aortic regurgitation who is asymptomatic, which of the following echocardiographic findings would indicate the need for surgical intervention?",
+                options: {
+                    A: "Aortic valve area < 1.0 cm²",
+                    B: "Left ventricular end-systolic diameter > 50 mm",
+                    C: "Left ventricular end-diastolic diameter > 40 mm",
+                    D: "Left ventricular ejection fraction > 60%",
+                    E: "Mild aortic root dilation"
+                },
+                correctAnswer: "B",
+                rationale: "Indications for surgery in chronic aortic regurgitation include LV dysfunction (LVEF < 55%) or significant LV dilation, defined as an LV end-systolic diameter (LVESD) > 50mm.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 30: \"Indications for surgery depend on: ... Degree of LV dilation (LV end systolic diameter 50mm or 5.0cm)\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "Inferred LO: Identify the clinical findings and etiology of [specific valve disorder].",
+                fullLO: "Inferred LO: Identify the clinical findings and etiology of Mitral Stenosis.",
+                question: "A 35-year-old female who immigrated from a developing country presents with fatigue and lower extremity edema. Auscultation at the apex with the bell of the stethoscope reveals a low-pitched diastolic rumble following an opening snap. Which of the following is the most likely underlying etiology?",
+                options: {
+                    A: "Calcific degeneration",
+                    B: "Infective endocarditis",
+                    C: "Mitral annular calcification",
+                    D: "Mitral valve prolapse",
+                    E: "Rheumatic heart disease"
+                },
+                correctAnswer: "E",
+                rationale: "The leading cause of mitral stenosis is rheumatic heart disease, characterized by an opening snap and diastolic rumble. It is frequent in populations with limited access to treatment for streptococcal pharyngitis.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Pages 31 & 34: \"Leading cause of MS is rheumatic heart disease (RHD)... Typical findings: ... Diastolic opening snap... Diastolic rumble or low-pitched murmur at the apex\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "Inferred LO: Identify the clinical findings and etiology of [specific valve disorder].",
+                fullLO: "Inferred LO: Identify the clinical findings and etiology of Mitral Stenosis.",
+                question: "A pregnant patient presents with new onset shortness of breath. An echocardiogram reveals a mitral valve area of 1.2 cm². The physician explains that her symptoms are precipitated by the physiologic changes of pregnancy. Which hemodynamic change associated with pregnancy most directly exacerbates the gradient across the stenotic mitral valve?",
+                options: {
+                    A: "Decreased heart rate",
+                    B: "Increased blood volume and cardiac output",
+                    C: "Increased systemic vascular resistance",
+                    D: "Reduced pulmonary vascular resistance",
+                    E: "Systemic embolization"
+                },
+                correctAnswer: "B",
+                rationale: "Pregnancy involves increased blood volume and cardiac output, making blood flow across the stenotic mitral valve difficult to maintain, which increases the gradient.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 33: \"Pregnancy: Increased blood volume and cardiac output -> blood flow across the mitral valve becomes difficult to maintain\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "Inferred LO: Identify the clinical findings and etiology of [specific valve disorder].",
+                fullLO: "Inferred LO: Identify the clinical findings and etiology of Mitral Stenosis.",
+                question: "A patient with severe rheumatic mitral stenosis is symptomatic despite optimal medical therapy. The valve morphology is favorable (pliable, non-calcified). Which intervention is indicated and has a high success rate?",
+                options: {
+                    A: "Balloon aortic valvuloplasty",
+                    B: "Coronary artery bypass grafting",
+                    C: "Mitral valve replacement with a mechanical valve",
+                    D: "Percutaneous balloon mitral commissurotomy (PBMC)",
+                    E: "Transcatheter mitral valve repair (MitraClip)"
+                },
+                correctAnswer: "D",
+                rationale: "PBMC is indicated for symptomatic patients with severe mitral stenosis and favorable valve morphology. It has a success rate of 95%.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 35: \"Percutaneous balloon mitral commissurotomy (PBMC): Indicated for symptomatic patients with severe mitral stenosis... and favorable valve morphology... Success rate is 95%\""
+            },
+
+            // --- Section 2: Cardiac Antiarrhythmics ---
+            {
+                section: "Cardiac Antiarrhythmics",
+                maskedLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Class I Agents)",
+                fullLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Class I Agents)",
+                question: "A patient is prescribed Flecainide for a resistant ventricular arrhythmia. This Class IC agent is characterized by which of the following effects on the cardiac action potential?",
+                options: {
+                    A: "Marked depression of conduction velocity (shallow phase 0 slope)",
+                    B: "Marked prolongation of the effective refractory period",
+                    C: "Shortening of the action potential duration",
+                    D: "Significant blockade of calcium channels",
+                    E: "Suppression of phase 4 automaticity via beta-blockade"
+                },
+                correctAnswer: "A",
+                rationale: "Flecainide (Class IC) causes marked affinity for and blockade of Na+ channels, leading to marked slowing of conduction velocity (shallow phase 0 slope) with little change in AP duration.",
+                source: "Anti-arrhythmic_Agents_PDF.pdf, Page 32: \"Class IC – Flecainide... Marked affinity for and blockade of Na+ channels. Marked slowing of conduction velocity (shallow phase 0 slope).\""
+            },
+            {
+                section: "Cardiac Antiarrhythmics",
+                maskedLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Class II Agents)",
+                fullLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Class II Agents)",
+                question: "A patient with a pheochromocytoma is being prepared for surgery. To control potential arrhythmias mediated by catecholamines, a Class II antiarrhythmic (Propranolol) is prescribed. These agents exert their cardiac action by:",
+                options: {
+                    A: "Blocking inward calcium currents",
+                    B: "Blocking outward potassium currents",
+                    C: "Depressing phase 4 spontaneous depolarization (automaticity)",
+                    D: "Increasing the velocity of the phase 0 upstroke",
+                    E: "Shortening the effective refractory period"
+                },
+                correctAnswer: "C",
+                rationale: "Class II agents (Beta-blockers) block the effects of catecholamines, decreasing automaticity (phase 4 spontaneous depolarization) in the SA node and elsewhere.",
+                source: "Anti-arrhythmic_Agents_PDF.pdf, Page 34: \"CLASS II... Cardiac action – blocks effects of catecholamines on: a. Automaticity (S-A node and elsewhere; heart rate)\""
+            },
+            {
+                section: "Cardiac Antiarrhythmics",
+                maskedLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Class III Agents)",
+                fullLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Class III Agents)",
+                question: "Sotalol is classified as a Class III antiarrhythmic agent. What is the primary electrophysiologic action associated with this class?",
+                options: {
+                    A: "Blockade of Na+ channels",
+                    B: "Blockade of outward K+ current and prolongation of action potential duration",
+                    C: "Shortening of the effective refractory period",
+                    D: "Stimulation of vagal tone",
+                    E: "Suppression of Ca++ fluxes in the AV node"
+                },
+                correctAnswer: "B",
+                rationale: "Class III agents (Sotalol, Amiodarone) block outward K+ current, which retards repolarization and prolongs the action potential duration and refractory period.",
+                source: "Anti-arrhythmic_Agents_PDF.pdf, Page 37: \"Class III Sotalol... Blocks outward K+ current / retards repolarization... Prolongs APD and effective refractory period\""
+            },
+            {
+                section: "Cardiac Antiarrhythmics",
+                maskedLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Class IV Agents)",
+                fullLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Class IV Agents)",
+                question: "A patient with atrial flutter is prescribed Verapamil to control the ventricular rate. The primary mechanism by which Class IV agents like Verapamil slow the heart rate is:",
+                options: {
+                    A: "Blockade of Na+ channels in the Purkinje fibers",
+                    B: "Blockade of outward K+ currents in the ventricle",
+                    C: "Decreased vagal tone",
+                    D: "Suppression of Ca++ fluxes in the SA and AV nodes",
+                    E: "Vasodilation of coronary arteries"
+                },
+                correctAnswer: "D",
+                rationale: "Verapamil (Class IV) suppresses Ca++ fluxes in the SA and AV nodes, prolonging the AV node refractory period and reducing heart rate.",
+                source: "Anti-arrhythmic_Agents_PDF.pdf, Page 47: \"Verapamil... Suppresses Ca ++ fluxes in S-A and A-V nodes (prolongs A-V node refractory period), reduces heart rate\""
+            },
+            {
+                section: "Cardiac Antiarrhythmics",
+                maskedLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Miscellaneous Agents)",
+                fullLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Miscellaneous Agents)",
+                question: "A 30-year-old female presents with a rapid heart rate of 180 bpm. The ECG shows a narrow complex tachycardia consistent with paroxysmal supraventricular tachycardia (PSVT). A drug is administered IV that has a half-life of less than 10 seconds. Which drug was used?",
+                options: {
+                    A: "Adenosine",
+                    B: "Amiodarone",
+                    C: "Digoxin",
+                    D: "Esmolol",
+                    E: "Lidocaine"
+                },
+                correctAnswer: "A",
+                rationale: "Adenosine is used for PSVT, has a rapid onset, and a very short half-life of 10-20 seconds.",
+                source: "Anti-arrhythmic_Agents_PDF.pdf, Page 49: \"ADENOSINE... Pharmacokinetics: ... b. very short half life – 10 seconds... Uses: Treatment of PSVT\""
+            },
+            {
+                section: "Cardiac Antiarrhythmics",
+                maskedLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Mechanism - Miscellaneous/Digoxin)",
+                fullLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Mechanism - Miscellaneous/Digoxin)",
+                question: "Digoxin is often used in heart failure patients with atrial fibrillation. Its ability to reduce ventricular rate is primarily due to which electrophysiological action?",
+                options: {
+                    A: "Blockade of sodium channels in the ventricle",
+                    B: "Direct inhibition of the SA node",
+                    C: "Enhancement of vagal tone and sensitization of baroreceptors",
+                    D: "Prolongation of the QT interval",
+                    E: "Shortening of the atrial refractory period"
+                },
+                correctAnswer: "C",
+                rationale: "Digoxin sensitizes baroreflex stretch receptors, enhances vagal tone, and withdraws sympathetic activity, thereby prolonging the AV refractory period.",
+                source: "Anti-arrhythmic_Agents_PDF.pdf, Page 50: \"Effect largely through sensitization of baroreflex stretch receptors; Enhancement of vagal tone... Prolong A-V refractory period\""
+            },
+            {
+                section: "Cardiac Antiarrhythmics",
+                maskedLO: "LO 2: Understand mechanism of cardiac actions... and major adverse effects. (Subobjective: Adverse Effects - Class IA)",
+                fullLO: "LO 2: Understand mechanism of cardiac actions of agents, general use in arrhythmias and pharmacokinetic properties, major adverse effects. (Subobjective: Adverse Effects - Class IA)",
+                question: "A 55-year-old male is treated for a ventricular arrhythmia with Quinidine. A few weeks later, he complains of ringing in his ears, dizziness, and headache. This constellation of symptoms is known as:",
+                options: {
+                    A: "Cinchonism",
+                    B: "Lupus erythematosus-like syndrome",
+                    C: "Metabolic acidosis",
+                    D: "Serotonin syndrome",
+                    E: "Thyrotoxicosis"
+                },
+                correctAnswer: "A",
+                rationale: "Quinidine has similar electrophysiology to Procainamide but is associated with troublesome side effects including diarrhea, dizziness, and tinnitus, collectively known as cinchonism.",
+                source: "Anti-arrhythmic_Agents_PDF.pdf, Page 26: \"Quinidine – similar electrophysiology, but troublesome side effects – diarrhea, dizziness, tinnitus\""
+            },
+            {
+                section: "Cardiac Antiarrhythmics",
+                maskedLO: "LO 2: Understand mechanism of cardiac actions... and major adverse effects. (Subobjective: Adverse Effects - Class IB)",
+                fullLO: "LO 2: Understand mechanism of cardiac actions of agents, general use in arrhythmias and pharmacokinetic properties, major adverse effects. (Subobjective: Adverse Effects - Class IB)",
+                question: "A patient is treated with Lidocaine for a ventricular arrhythmia. The patient begins to exhibit confusion and muscle twitching. These symptoms represent toxicity involving which organ system?",
+                options: {
+                    A: "Cardiovascular system",
+                    B: "Central nervous system",
+                    C: "Gastrointestinal system",
+                    D: "Renal system",
+                    E: "Respiratory system"
+                },
+                correctAnswer: "B",
+                rationale: "Lidocaine toxicity or adverse effects primarily involve the central nervous system, including disorientation, convulsions, drowsiness, and coma.",
+                source: "Anti-arrhythmic_Agents_PDF.pdf, Page 28: \"Toxic or Adverse Effects – involve central nervous system – disorientation, convulsions, drowsiness, coma\""
+            },
+            {
+                section: "Cardiac Antiarrhythmics",
+                maskedLO: "LO 2: Understand mechanism of cardiac actions... and major adverse effects. (Subobjective: Adverse Effects - Class III)",
+                fullLO: "LO 2: Understand mechanism of cardiac actions of agents, general use in arrhythmias and pharmacokinetic properties, major adverse effects. (Subobjective: Adverse Effects - Class III)",
+                question: "A 68-year-old male is treated with Amiodarone for atrial fibrillation. During a follow-up visit, he complains of a dry cough and shortness of breath. A chest X-ray reveals bilateral infiltrates. Which serious adverse effect of Amiodarone must be ruled out?",
+                options: {
+                    A: "Bronchospasm",
+                    B: "Heart failure exacerbation",
+                    C: "Pulmonary fibrosis",
+                    D: "Pulmonary hypertension",
+                    E: "Tuberculosis reactivation"
+                },
+                correctAnswer: "C",
+                rationale: "Pulmonary fibrosis is a serious adverse effect of Amiodarone. Other effects include thyroid dysfunction and corneal deposits.",
+                source: "Anti-arrhythmic_Agents_PDF.pdf, Page 39: \"Adverse effects... a. Pulmonary fibrosis*\""
+            },
+            {
+                section: "Cardiac Antiarrhythmics",
+                maskedLO: "LO 2: Understand mechanism of cardiac actions... and major adverse effects. (Subobjective: Clinical Use - Contraindications)",
+                fullLO: "LO 2: Understand mechanism of cardiac actions of agents, general use in arrhythmias and pharmacokinetic properties, major adverse effects. (Subobjective: Clinical Use - Contraindications)",
+                question: "A patient with a history of a previous myocardial infarction presents with premature ventricular contractions (PVCs). Flecainide is contraindicated in this patient due to which risk?",
+                options: {
+                    A: "Excessive QT prolongation",
+                    B: "Hepatotoxicity",
+                    C: "Proarrhythmic effects",
+                    D: "Pulmonary fibrosis",
+                    E: "Severe hypotension"
+                },
+                correctAnswer: "C",
+                rationale: "Flecainide is proarrhythmic, particularly in MI patients. It should not be used when there is structural damage in the heart (CAD).",
+                source: "Anti-arrhythmic_Agents_PDF.pdf, Page 32: \"Toxicity: a. Proarrhythmic - particularly in MI patients... Do not use when there is structural damage in heart [CAD].\""
+            },
+            {
+                section: "Cardiac Antiarrhythmics",
+                maskedLO: "LO 2: Understand mechanism of cardiac actions... and major adverse effects. (Subobjective: Adverse Effects - Class IA)",
+                fullLO: "LO 2: Understand mechanism of cardiac actions of agents, general use in arrhythmias and pharmacokinetic properties, major adverse effects. (Subobjective: Adverse Effects - Class IA)",
+                question: "A patient taking Procainamide presents with joint pain and a malar rash. Laboratory testing reveals a positive ANA. Which adverse effect is this patient experiencing?",
+                options: {
+                    A: "Cinchonism",
+                    B: "Lupus erythematosus-like syndrome",
+                    C: "Stevens-Johnson syndrome",
+                    D: "Thrombocytopenia",
+                    E: "Thyroid storm"
+                },
+                correctAnswer: "B",
+                rationale: "Procainamide is associated with a lupus erythematosus-like autoimmune syndrome as a major adverse effect.",
+                source: "Anti-arrhythmic_Agents_PDF.pdf, Page 26: \"Adverse Effects... Lupus erythematosis-like (auto-immune) syndrome may occur.\""
+            },
+
+            // --- Section 3: Congenital Heart Disease (A. Barrett) ---
+            {
+                section: "Congenital Heart Disease (A. Barrett)",
+                maskedLO: "LO 1: Discuss the pathology related to noncyanotic congenital heart malformations.",
+                fullLO: "LO 1: Discuss the pathology related to noncyanotic congenital heart malformations including ventricular septal defect, atrial septal defect, patent ductus arteriosus and atrioventricular canal(endocardial cushion defect)",
+                question: "A premature infant is diagnosed with a Patent Ductus Arteriosus (PDA). This condition represents the persistence of a fetal structure that connects which two vessels?",
+                options: {
+                    A: "Aorta and Pulmonary Vein",
+                    B: "Aorta and Superior Vena Cava",
+                    C: "Left Pulmonary Artery and Aorta",
+                    D: "Pulmonary Trunk and Right Pulmonary Artery",
+                    E: "Right Ventricle and Aorta"
+                },
+                correctAnswer: "C",
+                rationale: "The PDA is a persistence of a fetal structure connecting the left pulmonary artery to the aorta just beyond the origin of the left subclavian artery.",
+                source: "Congenital_Heart_Disease_PDF_Barrett.pdf, Page 15: \"Patent Ductus Arteriosus (PDA)... Persistence of a fetal structure which connects left pulmonary artery to aorta just beyond the origin of left subclavian artery\""
+            },
+            {
+                section: "Congenital Heart Disease (A. Barrett)",
+                maskedLO: "LO 1: Discuss the pathology related to noncyanotic congenital heart malformations.",
+                fullLO: "LO 1: Discuss the pathology related to noncyanotic congenital heart malformations including ventricular septal defect, atrial septal defect, patent ductus arteriosus and atrioventricular canal(endocardial cushion defect)",
+                question: "Which of the following is the most common congenital heart anomaly, accounting for approximately one-third of all congenital heart disease?",
+                options: {
+                    A: "Atrial Septal Defect (ASD)",
+                    B: "Coarctation of the Aorta",
+                    C: "Patent Ductus Arteriosus (PDA)",
+                    D: "Tetralogy of Fallot",
+                    E: "Ventricular Septal Defect (VSD)"
+                },
+                correctAnswer: "E",
+                rationale: "VSD is identified as the most common congenital heart anomaly.",
+                source: "Congenital_Heart_Disease_PDF_Barrett.pdf, Page 7: \"Ventricular Septal Defect (VSD)... Most common congenital heart anomaly... Accounts for one-third of all congenital heart disease\""
+            },
+            {
+                section: "Congenital Heart Disease (A. Barrett)",
+                maskedLO: "LO 1: Discuss the pathology related to noncyanotic congenital heart malformations.",
+                fullLO: "LO 1: Discuss the pathology related to noncyanotic congenital heart malformations including ventricular septal defect, atrial septal defect, patent ductus arteriosus and atrioventricular canal(endocardial cushion defect)",
+                question: "An adult patient is incidentally found to have a Secundum-type Atrial Septal Defect (ASD). This specific defect results from the failure of closure of which structure?",
+                options: {
+                    A: "Ductus arteriosus",
+                    B: "Ductus venosus",
+                    C: "Ostium primum",
+                    D: "Ostium secundum",
+                    E: "Ventricular septum"
+                },
+                correctAnswer: "D",
+                rationale: "ASDs are secondary to developmental failure in partitioning the interatrial septum. The ostium secundum ASD involves failure of closure of the ostium secundum (fossa ovalis defect).",
+                source: "Congenital_Heart_Disease_PDF_Barrett.pdf, Page 10: \"ASDs secondary to developmental failure... leading to failure of closure of the ostium primum or ostium secundum... Ostium secundum ASD is the most common\""
+            },
+            {
+                section: "Congenital Heart Disease (A. Barrett)",
+                maskedLO: "LO 2: Discuss the pathology related to cyanotic congenital heart malformations.",
+                fullLO: "LO 2: Discuss the pathology related to cyanotic congenital heart malformations including the Tetralogy of Fallot, transposition of the great arteries and hypoplasia of the left ventricle",
+                question: "An infant is diagnosed with Tetralogy of Fallot. The four anatomical components of this defect include a ventricular septal defect, pulmonic stenosis, right ventricular hypertrophy, and:",
+                options: {
+                    A: "Atrial septal defect",
+                    B: "Coarctation of the aorta",
+                    C: "Overriding aorta",
+                    D: "Patent ductus arteriosus",
+                    E: "Transposition of the great vessels"
+                },
+                correctAnswer: "C",
+                rationale: "The four components of TOF are VSD, Pulmonic Stenosis, Overriding Aorta, and Right Ventricular Hypertrophy.",
+                source: "Congenital_Heart_Disease_PDF_Barrett.pdf, Page 19: \"Tetralogy of Fallot (TOF)... Anatomy consists of four things: ... Overriding aorta (Dextropositioned)\""
+            },
+            {
+                section: "Congenital Heart Disease (A. Barrett)",
+                maskedLO: "LO 2: Discuss the pathology related to cyanotic congenital heart malformations.",
+                fullLO: "LO 2: Discuss the pathology related to cyanotic congenital heart malformations including the Tetralogy of Fallot, transposition of the great arteries and hypoplasia of the left ventricle",
+                question: "A newborn presents with severe heart failure in the first week of life. Imaging reveals a hypoplastic left ventricle and aortic atresia. This condition (Hypoplastic Left Heart Syndrome) is:",
+                options: {
+                    A: "Associated with a ventricular septal defect in 90% of cases",
+                    B: "Caused by failure of the truncus arteriosus to spiral",
+                    C: "The most common cause of heart failure in the first week of life",
+                    D: "Treatable with high-dose oxygen alone",
+                    E: "Usually asymptomatic until adulthood"
+                },
+                correctAnswer: "C",
+                rationale: "Hypoplastic Left Heart Syndrome is identified as the most common cause of heart failure in the first week of life.",
+                source: "Congenital_Heart_Disease_PDF_Barrett.pdf, Page 26: \"Hypoplastic Left Heart Syndrome... Most common cause of heart failure in first week of life\""
+            },
+            {
+                section: "Congenital Heart Disease (A. Barrett)",
+                maskedLO: "LO 2: Discuss the pathology related to cyanotic congenital heart malformations.",
+                fullLO: "LO 2: Discuss the pathology related to cyanotic congenital heart malformations including the Tetralogy of Fallot, transposition of the great arteries and hypoplasia of the left ventricle",
+                question: "An infant presents with cyanosis. An echocardiogram shows the aorta arising from the right ventricle and the pulmonary artery arising from the left ventricle. This anatomy describes which congenital defect?",
+                options: {
+                    A: "Hypoplastic Left Heart Syndrome",
+                    B: "Persistent Truncus Arteriosus",
+                    C: "Tetralogy of Fallot",
+                    D: "Total Anomalous Pulmonary Venous Return",
+                    E: "Transposition of the Great Arteries (TGA)"
+                },
+                correctAnswer: "E",
+                rationale: "TGA is defined by the aorta arising from the right ventricle and the pulmonary artery arising from the left ventricle.",
+                source: "Congenital_Heart_Disease_PDF_Barrett.pdf, Page 23: \"Transposition of Great Arteries (TGA)... Anatomy: Aorta arises from right ventricle... Pulmonary artery arises from left ventricle\""
+            },
+
+            // --- Section 4: Congenital Heart Disease (Sturgis) ---
+            {
+                section: "Congenital Heart Disease (Sturgis)",
+                maskedLO: "LO 3: Describe and recognize characteristic clinical presentations of major heart defects.",
+                fullLO: "LO 3: Describe and recognize characteristic clinical presentations of major heart defects. Discuss the location, etiology, diagnosis, imaging, and treatment of these heart defects.",
+                question: "A child with Tetralogy of Fallot is observed squatting during episodes of cyanosis. What is the primary physiological benefit of squatting in this condition?",
+                options: {
+                    A: "Decreases pulmonary vascular resistance",
+                    B: "Increases heart rate",
+                    C: "Increases systemic vascular resistance",
+                    D: "Increases venous return only",
+                    E: "Opens the ductus arteriosus"
+                },
+                correctAnswer: "C",
+                rationale: "Squatting increases venous return and increases systemic vascular resistance, which forces more blood through the pulmonary artery (more O2 rich blood).",
+                source: "Congenital_Heart_Disease_Sturgis_PDF.pdf, Slide 36: \"Squatting = ... Increased systemic vascular resistance... More blood in RV = more blood through pulmonary artery\""
+            },
+            {
+                section: "Congenital Heart Disease (Sturgis)",
+                maskedLO: "LO 3: Describe and recognize characteristic clinical presentations of major heart defects.",
+                fullLO: "LO 3: Describe and recognize characteristic clinical presentations of major heart defects. Discuss the location, etiology, diagnosis, imaging, and treatment of these heart defects.",
+                question: "A newborn presents with intense cyanosis and shock within 24 hours of birth. The infant is non-responsive to supplemental oxygen. An echocardiogram reveals the aorta arising from the right ventricle. What is the immediate medical management to keep the ductus arteriosus open?",
+                options: {
+                    A: "Administer Indomethacin",
+                    B: "Administer Prostaglandins",
+                    C: "High flow oxygen",
+                    D: "Intubation and hyperventilation",
+                    E: "Surgical ligation"
+                },
+                correctAnswer: "B",
+                rationale: "In Transposition of the Great Arteries, survival depends on mixing blood. Prostaglandins are given to keep the ductus arteriosus open.",
+                source: "Congenital_Heart_Disease_Sturgis_PDF.pdf, Slide 41: \"Transposition of Great Arteries... How do you keep it open? – Give Prostaglandins\""
+            },
+            {
+                section: "Congenital Heart Disease (Sturgis)",
+                maskedLO: "LO 3: Describe and recognize characteristic clinical presentations of major heart defects.",
+                fullLO: "LO 3: Describe and recognize characteristic clinical presentations of major heart defects. Discuss the location, etiology, diagnosis, imaging, and treatment of these heart defects.",
+                question: "A child presents with upper extremity hypertension and weak femoral pulses. Which condition is most likely responsible for these physical exam findings?",
+                options: {
+                    A: "Atrial Septal Defect",
+                    B: "Coarctation of the Aorta",
+                    C: "Patent Ductus Arteriosus",
+                    D: "Tetralogy of Fallot",
+                    E: "Ventricular Septal Defect"
+                },
+                correctAnswer: "B",
+                rationale: "Coarctation presents with upper extremity hypertension and weak femoral pulses due to constriction of the aorta.",
+                source: "Congenital_Heart_Disease_Sturgis_PDF.pdf, Slide 45: \"Coarctation of the Aorta... Upper extremity hypertension... Weak femoral pulses\""
+            },
+            {
+                section: "Congenital Heart Disease (Sturgis)",
+                maskedLO: "LO 4: Differentiate between congenital heart defects that are cyanotic vs. non-cyanotic.",
+                fullLO: "LO 4: Differentiate between congenital heart defects that are cyanotic vs. non-cyanotic.",
+                question: "According to the \"3Ds\" mnemonic provided in the lecture, which of the following is classified as a Non-Cyanotic (PINK) heart defect?",
+                options: {
+                    A: "Patent Ductus Arteriosus (PDA)",
+                    B: "Tetralogy of Fallot",
+                    C: "Total Anomalous Pulmonary Venous Return",
+                    D: "Transposition of the Great Arteries",
+                    E: "Tricuspid Atresia"
+                },
+                correctAnswer: "A",
+                rationale: "The Non-Cyanotic (PINK) defects are the \"3 Ds\": ASD, VSD, and PDA. Cyanotic (BLUE) defects start with T.",
+                source: "Congenital_Heart_Disease_Sturgis_PDF.pdf, Slide 4: \"Non-Cyanotic (PINK) = 3Ds... 3. Patent Ductus Arteriosus (PDA)\""
+            },
+            {
+                section: "Congenital Heart Disease (Sturgis)",
+                maskedLO: "LO 4: Differentiate between congenital heart defects that are cyanotic vs. non-cyanotic.",
+                fullLO: "LO 4: Differentiate between congenital heart defects that are cyanotic vs. non-cyanotic.",
+                question: "A medical student is asked to identify a cyanotic heart defect. Which of the following defects is cyanotic (Right to Left shunt)?",
+                options: {
+                    A: "Atrial Septal Defect",
+                    B: "Coarctation of the Aorta (Adult type)",
+                    C: "Patent Ductus Arteriosus",
+                    D: "Truncus Arteriosus",
+                    E: "Ventricular Septal Defect"
+                },
+                correctAnswer: "D",
+                rationale: "Cyanotic (Blue) defects start with T, including Truncus Arteriosus.",
+                source: "Congenital_Heart_Disease_Sturgis_PDF.pdf, Slide 4: \"Cyanotic (BLUE) = starts with T... 1. Truncus Arteriosus\""
+            },
+            {
+                section: "Congenital Heart Disease (Sturgis)",
+                maskedLO: "LO 4: Differentiate between congenital heart defects that are cyanotic vs. non-cyanotic.",
+                fullLO: "LO 4: Differentiate between congenital heart defects that are cyanotic vs. non-cyanotic.",
+                question: "According to the classification provided in the lecture, which of the following conditions is considered a cyanotic defect because it starts with the letter 'T'?",
+                options: {
+                    A: "Transposition of the Great Arteries",
+                    B: "Patent Ductus Arteriosus",
+                    C: "Atrial Septal Defect",
+                    D: "Ventricular Septal Defect",
+                    E: "Coarctation of the Aorta"
+                },
+                correctAnswer: "A",
+                rationale: "The mnemonic provided states that cyanotic (BLUE) defects start with T, such as Transposition of the Great Arteries.",
+                source: "Congenital_Heart_Disease_Sturgis_PDF.pdf, Slide 4: \"Cyanotic (BLUE) = starts with T... 2. Transposition of the Great Arteries (TGA)\""
+            },
+            {
+                section: "Congenital Heart Disease (Sturgis)",
+                maskedLO: "LO 5: Distinguish the anatomical basis and physiological outcomes of left to right shunts...",
+                fullLO: "LO 5: Distinguish the anatomical basis and physiological outcomes of left to right shunts and right to left shunts",
+                question: "A patient has a large Ventricular Septal Defect. Over time, the high pressure and flow into the pulmonary circulation lead to pulmonary hypertension. If the shunt reverses direction (becoming Right to Left), the condition is called:",
+                options: {
+                    A: "Cor pulmonale",
+                    B: "Eisenmenger’s complex",
+                    C: "Hypoplastic left heart",
+                    D: "Tetralogy of Fallot",
+                    E: "Transposition"
+                },
+                correctAnswer: "B",
+                rationale: "Increased pressure in the pulmonary circulation leads to pulmonary hypertension, right ventricular hypertrophy, and eventually shunt reversal to Right-to-Left, known as Eisenmenger's complex.",
+                source: "Congenital_Heart_Disease_Sturgis_PDF.pdf, Slide 15: \"Eventually shunt reverses to Right to Left shunt – Eisenminger’s complex\""
+            },
+            {
+                section: "Congenital Heart Disease (Sturgis)",
+                maskedLO: "LO 5: Distinguish the anatomical basis and physiological outcomes of left to right shunts...",
+                fullLO: "LO 5: Distinguish the anatomical basis and physiological outcomes of left to right shunts and right to left shunts",
+                question: "A child is diagnosed with a Left-to-Right shunt. This physiological outcome is primarily driven by:",
+                options: {
+                    A: "The right ventricle being stronger than the left",
+                    B: "The left ventricle being stronger than the right",
+                    C: "Obstruction in the pulmonary artery",
+                    D: "Obstruction in the aorta",
+                    E: "A right-to-left pressure gradient"
+                },
+                correctAnswer: "B",
+                rationale: "Left to Right shunts occur because the Left Ventricle is stronger than the Right, and blood follows the path of least resistance through a hole between the sides.",
+                source: "Congenital_Heart_Disease_Sturgis_PDF.pdf, Slide 9: \"Left to Right Shunts... Left Ventricle is stronger than the Right... Blood follows the path of least resistance\""
+            },
+            {
+                section: "Congenital Heart Disease (Sturgis)",
+                maskedLO: "LO 5: Distinguish the anatomical basis and physiological outcomes of left to right shunts...",
+                fullLO: "LO 5: Distinguish the anatomical basis and physiological outcomes of left to right shunts and right to left shunts",
+                question: "In a patient with a Right-to-Left shunt, the primary physiological consequence that leads to clinical cyanosis is:",
+                options: {
+                    A: "Increased oxygenation of pulmonary blood",
+                    B: "Mixing of deoxygenated venous blood into the systemic arterial circulation",
+                    C: "Overload of the pulmonary circulation",
+                    D: "Recirculation of oxygenated blood through the lungs",
+                    E: "Systemic hypertension"
+                },
+                correctAnswer: "B",
+                rationale: "Cyanotic (Right to Left) shunts result in venous blood mixing with arterial blood through an abnormal communication, delivering deoxygenated blood to the body.",
+                source: "Congenital_Heart_Disease_Sturgis_PDF.pdf, Slide 5: \"Cyanotic: Due to venous blood mixing with arterial blood through an abnormal communication or 'shunt' (right to left)\""
+            }
+        ];
+
+        // --- Core Logic ---
+        const quizRoot = document.getElementById('quiz-root');
+        const themeSelect = document.getElementById('theme-select');
+        const pinBtn = document.getElementById('pin-btn');
+        const mainHeader = document.getElementById('main-header');
+
+        function initQuiz() {
+            // Render Questions
+            let currentSection = "";
+            
+            quizData.forEach((item, index) => {
+                // Insert Section Header if needed
+                if (item.section !== currentSection) {
+                    currentSection = item.section;
+                    const sectionHeader = document.createElement('h2');
+                    sectionHeader.className = 'section-header';
+                    sectionHeader.textContent = currentSection;
+                    quizRoot.appendChild(sectionHeader);
+                }
+
+                // Create Card
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                card.id = `q-card-${index}`;
+
+                // Learning Objective (Masked)
+                const loBox = document.createElement('div');
+                loBox.className = 'lo-box';
+                loBox.id = `lo-${index}`;
+                loBox.textContent = item.maskedLO;
+                card.appendChild(loBox);
+
+                // Question Text
+                const qText = document.createElement('div');
+                qText.className = 'question-text';
+                qText.textContent = `${index + 1}. ${item.question}`;
+                card.appendChild(qText);
+
+                // Options Container
+                const optionsGrid = document.createElement('div');
+                optionsGrid.className = 'options-grid';
+
+                for (const [key, value] of Object.entries(item.options)) {
+                    const label = document.createElement('label');
+                    label.className = 'option-label';
+                    
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = `question-${index}`;
+                    input.value = key;
+
+                    const span = document.createElement('span');
+                    // Retain letters: A. Option Text
+                    span.textContent = `${key}. ${value}`;
+
+                    label.appendChild(input);
+                    label.appendChild(span);
+                    optionsGrid.appendChild(label);
+                }
+                card.appendChild(optionsGrid);
+
+                // Check Button
+                const btn = document.createElement('button');
+                btn.className = 'btn-check';
+                btn.textContent = 'Check Answer';
+                btn.onclick = () => checkAnswer(index);
+                card.appendChild(btn);
+
+                // Feedback Container
+                const feedback = document.createElement('div');
+                feedback.className = 'feedback';
+                feedback.id = `feedback-${index}`;
+                card.appendChild(feedback);
+
+                quizRoot.appendChild(card);
+            });
+
+            // Load saved theme
+            const savedTheme = localStorage.getItem('quizTheme') || 'dark';
+            changeTheme(savedTheme);
+            themeSelect.value = savedTheme;
+
+            // Load saved pin state
+            const savedPinState = localStorage.getItem('headerPinned');
+            // Default to true (pinned) if not set or if set to true
+            if (savedPinState === 'false') {
+                toggleHeader(false); 
+            } else {
+                toggleHeader(true);
+            }
+        }
+
+        function checkAnswer(index) {
+            const selected = document.querySelector(`input[name="question-${index}"]:checked`);
+            const feedbackEl = document.getElementById(`feedback-${index}`);
+            const loEl = document.getElementById(`lo-${index}`);
+            const data = quizData[index];
+
+            if (!selected) {
+                alert("Please select an answer.");
+                return;
+            }
+
+            // Reveal LO
+            loEl.textContent = data.fullLO;
+
+            // Generate Feedback HTML
+            const isCorrect = selected.value === data.correctAnswer;
+            
+            let html = `<span class="feedback-header">${isCorrect ? "Correct!" : "Incorrect"}</span>`;
+            if (!isCorrect) {
+                html += `<div>The correct answer is <strong>${data.correctAnswer}</strong>.</div>`;
+            }
+            
+            html += `<div class="rationale"><strong>Rationale:</strong> ${data.rationale}</div>`;
+            html += `<div class="source"><strong>Source:</strong> ${data.source}</div>`;
+
+            feedbackEl.innerHTML = html;
+            feedbackEl.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+            feedbackEl.style.display = 'block';
+        }
+
+        function changeTheme(themeName) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('quizTheme', themeName);
+        }
+
+        function toggleHeader(forceState) {
+            // Determine current state based on class presence
+            const isCurrentlyPinned = !mainHeader.classList.contains('unpinned');
+            
+            // If forceState is provided (boolean), use it. Otherwise toggle current state.
+            const newState = (typeof forceState === 'boolean') ? forceState : !isCurrentlyPinned;
+
+            if (newState) {
+                // Pin
+                mainHeader.classList.remove('unpinned');
+                pinBtn.classList.add('pin-active');
+                localStorage.setItem('headerPinned', 'true');
+            } else {
+                // Unpin
+                mainHeader.classList.add('unpinned');
+                pinBtn.classList.remove('pin-active');
+                localStorage.setItem('headerPinned', 'false');
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', initQuiz);
+
+    </script>
+</body>
+</html>
