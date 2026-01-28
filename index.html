@@ -268,6 +268,31 @@
             margin-bottom: 1.5rem;
         }
 
+        /* --- Helper Classes for Tables within Questions --- */
+        .table-container {
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        table.question-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+        
+        table.question-table th, 
+        table.question-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            text-align: left;
+        }
+        
+        table.question-table th {
+            background-color: var(--highlight-bg);
+            font-weight: 700;
+        }
+
         /* --- Options --- */
         .options-grid {
             display: flex;
@@ -404,7 +429,249 @@
     <script>
         // --- Data ---
         const quizData = [
-            // --- Section 1: Valvular Heart Disease ---
+            // --- Section 1: Management of Cardiac Arrhythmias ---
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 1: Review normal propagation of cardiac electrical activity",
+                fullLO: "LO 1: Review normal propagation of cardiac electrical activity",
+                question: "A medical student is reviewing the anatomy of the cardiac conduction system. They trace the electrical impulse from the Sinoatrial (SA) node to the left atrium. According to the lecture, which structure serves as the primary route to activate the left atrium by connecting the bases of the right and left atrial appendages?",
+                options: {
+                    A: "Anterior internodal tract",
+                    B: "Bachmann’s bundle",
+                    C: "Bundle of His",
+                    D: "Left Bundle Branch",
+                    E: "Moderator band"
+                },
+                correctAnswer: "B",
+                rationale: "The lecture identifies three routes to activate the left atrium: Bachmann’s bundle (connecting bases of the RAA and LAA), the coronary sinus musculature, and the inter-atrial septum.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 3: \"Three routes to activate left atrium: 1. Bachmann’s bundle connecting bases of the right and left atrial appendages (RAA, LAA)\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 1: Review normal propagation of cardiac electrical activity",
+                fullLO: "LO 1: Review normal propagation of cardiac electrical activity",
+                question: "A cardiac physiologist is measuring the timing of electrical impulses within the heart. They note a specific period of intrinsic delay that corresponds to the iso-electric (flat) segment of the PR interval on the surface ECG. Which structure is responsible for this physiological delay?",
+                options: {
+                    A: "Bundle of His",
+                    B: "Compact Atrioventricular (AV) node",
+                    C: "Left Bundle Branch",
+                    D: "Purkinje fibers",
+                    E: "Sinoatrial (SA) node"
+                },
+                correctAnswer: "B",
+                rationale: "The compact AV node is responsible for the intrinsic delay in conduction, which manifests as the iso-electric segment of the PR interval.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 3: \"Compact Atrioventricular (AV) node... Intrinsic delay, during iso-electric (flat) segment of PR interval\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 1: Review normal propagation of cardiac electrical activity",
+                fullLO: "LO 1: Review normal propagation of cardiac electrical activity",
+                question: "A patient is undergoing an electrocardiogram (ECG). During ventricular depolarization, the electrical activation wave travels directly towards the positive electrode of a specific lead. How will this electrical event be represented on the ECG tracing for that lead?",
+                options: {
+                    A: "A biphasic deflection",
+                    B: "A flat (iso-electric) line",
+                    C: "A negative (downward) deflection",
+                    D: "A positive (upward) deflection",
+                    E: "An oscillating wave"
+                },
+                correctAnswer: "D",
+                rationale: "Depolarization of myocardial tissue causes a positive (upward) deflection on the ECG tracing when electrical activation travels towards the positive electrode.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 8: \"A positive (upward) deflection on the ECG tracing when electrical activation travels towards the positive electrode\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 2: Diagnosis and management of Brady-arrhythmias",
+                fullLO: "LO 2: Diagnosis and management of Brady-arrhythmias",
+                question: "A 75-year-old male presents with fatigue and dyspnea. An ECG reveals a second-degree AV block. There is no progressive prolongation of the PR interval; rather, there are occasional single dropped beats (non-conducted P waves) with a constant PR interval in the conducted beats. The QRS complex is slightly widened. What is the most likely anatomic location of the block?",
+                options: {
+                    A: "Atrial myocardium",
+                    B: "Compact AV node",
+                    C: "Below the His bundle",
+                    D: "Sinoatrial node",
+                    E: "Superior Vena Cava"
+                },
+                correctAnswer: "C",
+                rationale: "This describes a Mobitz type 2 second-degree AV block. Unlike Mobitz type 1 (Wenckebach), which occurs in the AV node, Mobitz type 2 can be due to a block below the His bundle and carries a higher risk of asystole.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 17: \"2nd degree AV block, Mobitz type 2... Can be due to block below His bundle (higher risk of asystole)... Can be 2:1 or single dropped beats without PR prolongation\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 2: Diagnosis and management of Brady-arrhythmias",
+                fullLO: "LO 2: Diagnosis and management of Brady-arrhythmias",
+                question: "A 60-year-old female presents to the emergency department after a syncopal episode. Her heart rate is 35 bpm and she is hypotensive (BP 80/50 mmHg). An ECG shows sinus bradycardia. While preparing for pacing, which intravenous medication should be administered to increase the SA nodal rate and improve AV nodal conduction?",
+                options: {
+                    A: "Adenosine",
+                    B: "Amiodarone",
+                    C: "Atropine",
+                    D: "Digoxin",
+                    E: "Metoprolol"
+                },
+                correctAnswer: "C",
+                rationale: "For symptomatic or hemodynamically unstable bradyarrhythmia, IV atropine is indicated as it has a similar effect to exercise, increasing SA nodal rate and improving AV nodal block.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 19: \"Bradyarrhythmia – Acute Treatment... Symptoms or hemodynamically unstable: IV atropine (similar effect as exercise)... can increase SA nodal rate, improve AV nodal block\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 2: Diagnosis and management of Brady-arrhythmias",
+                fullLO: "LO 2: Diagnosis and management of Brady-arrhythmias",
+                question: "A 70-year-old patient is evaluated for fatigue. An ECG shows a \"complete heart block\" with complete dissociation between P waves and QRS complexes. The ventricular rate is 30 bpm. The physician recommends permanent pacemaker implantation. This therapy is indicated:",
+                options: {
+                    A: "Only if the patient has a history of myocardial infarction",
+                    B: "Only if the ventricular rate drops below 20 bpm",
+                    C: "Regardless of symptoms",
+                    D: "Only if reversible causes are excluded and symptoms persist",
+                    E: "Only if the QRS duration is narrow"
+                },
+                correctAnswer: "C",
+                rationale: "Third-degree (complete) AV block is a \"DANGER!\" rhythm. A pacemaker is indicated irrespective of symptoms due to the risk of asystole/death.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 18: \"3rd degree AV block... DANGER! Pacemaker indicated irrespective of symptoms\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 3: Diagnosis and management of Tachy-arrhythmias",
+                fullLO: "LO 3: Diagnosis and management of Tachy-arrhythmias",
+                question: "A 25-year-old male with a history of Wolff-Parkinson-White (WPW) syndrome presents with palpitations. His ECG shows a wide complex tachycardia. The physician explains that the impulse is traveling retrogradely up the AV node and antegradely (down) the bypass tract. This specific arrhythmia mechanism is defined as:",
+                options: {
+                    A: "Antidromic Atrioventricular Reciprocating Tachycardia (AVRT)",
+                    B: "Atrial Fibrillation with pre-excitation",
+                    C: "Atrioventricular Nodal Reentry Tachycardia (AVNRT)",
+                    D: "Focal Atrial Tachycardia",
+                    E: "Orthodromic Atrioventricular Reciprocating Tachycardia (AVRT)"
+                },
+                correctAnswer: "A",
+                rationale: "In WPW syndrome, Antidromic AVRT involves retrograde conduction up the AV node and antegrade (downward) conduction via the bypass tract. Orthodromic is the reverse (down AV node, up bypass).",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 25: \"Antidromic AVRT = retrograde conduction up AV node and down the bypass tract\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 3: Diagnosis and management of Tachy-arrhythmias",
+                fullLO: "LO 3: Diagnosis and management of Tachy-arrhythmias",
+                question: "A 76-year-old female with atrial fibrillation is being evaluated for stroke risk to determine the need for anticoagulation. She has hypertension and diabetes but no history of heart failure, vascular disease, or prior stroke.<br><br><div class='table-container'><table class='question-table'><thead><tr><th>Risk Factor</th><th>Points</th></tr></thead><tbody><tr><td>Congestive heart failure</td><td>1</td></tr><tr><td>Hypertension</td><td>1</td></tr><tr><td>Age &ge; 75</td><td>2</td></tr><tr><td>Age 65-74</td><td>1</td></tr><tr><td>Diabetes</td><td>1</td></tr><tr><td>Stroke/TIA/Thromboembolism</td><td>2</td></tr><tr><td>Vascular Disease (PAD, prior MI)</td><td>1</td></tr><tr><td>Sex (Female)</td><td>1</td></tr></tbody></table></div><br>Based on the table provided, what is her CHA2DS2-VASc score?",
+                options: {
+                    A: "1",
+                    B: "2",
+                    C: "3",
+                    D: "4",
+                    E: "5"
+                },
+                correctAnswer: "E",
+                rationale: "The patient receives points for the following: Age 76 (≥ 75) = 2 points, Hypertension = 1 point, Diabetes = 1 point, Sex (Female) = 1 point. Total = 5 points.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 34: \"CHA2DS2-VASc score estimates stroke risk... Hypertension = 1... Age = 1 if >= 65, 2 if >= 75... Diabetes = 1... Sex = 1 if female\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 3: Diagnosis and management of Tachy-arrhythmias",
+                fullLO: "LO 3: Diagnosis and management of Tachy-arrhythmias",
+                question: "A 65-year-old patient presents with a wide-complex tachycardia at a rate of 160 bpm. The patient has a history of prior myocardial infarction. An ECG reveals AV dissociation (P waves occurring independently of QRS complexes). This finding definitively confirms which diagnosis?",
+                options: {
+                    A: "Atrial Fibrillation with aberrancy",
+                    B: "Atrial Flutter with 2:1 block",
+                    C: "Sinus Tachycardia with Left Bundle Branch Block",
+                    D: "Supraventricular Tachycardia with aberrancy",
+                    E: "Ventricular Tachycardia (VT)"
+                },
+                correctAnswer: "E",
+                rationale: "In the evaluation of wide-complex tachycardia, AV dissociation proves the diagnosis of Ventricular Tachycardia.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 35: \"Assume VT until proven otherwise... AV dissociation proves VT\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 4: Interpret ECG examples",
+                fullLO: "LO 4: Interpret ECG examples",
+                question: "An ECG shows a wide QRS complex (>120 ms). In lead V1, there is a dominant S wave (QS pattern) with a \"W\" shape. In lead V6, there is a notched R wave (\"M\" shape). Using the \"WiLLiaM MoRRoW\" mnemonic, this pattern is consistent with:",
+                options: {
+                    A: "First-degree AV block",
+                    B: "Left Bundle Branch Block (LBBB)",
+                    C: "Right Bundle Branch Block (RBBB)",
+                    D: "Right Ventricular Hypertrophy",
+                    E: "Wolff-Parkinson-White pattern"
+                },
+                correctAnswer: "B",
+                rationale: "LBBB presents with a 'W' shape (negative deflection) in V1 and an 'M' shape (positive deflection) in V6, consistent with the \"WiLLiaM\" part of the mnemonic.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 13: \"Left bundle branch block (LBBB)... V1 'W'... V6 'M'... Mnemonic to remember LBBB, RBBB = WiLLiaM MoRRoW\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 4: Interpret ECG examples",
+                fullLO: "LO 4: Interpret ECG examples",
+                question: "A patient presents with palpitations. An ECG strip reveals a regular narrow-complex tachycardia with \"sawtooth\" waves visible in the inferior leads (II, III, aVF). The atrial rate is approximately 300 bpm, and the ventricular rate is 150 bpm (2:1 conduction). What is the diagnosis?",
+                options: {
+                    A: "Atrial Fibrillation",
+                    B: "Atrial Flutter",
+                    C: "AV Nodal Reentry Tachycardia",
+                    D: "Sinus Tachycardia",
+                    E: "Ventricular Tachycardia"
+                },
+                correctAnswer: "B",
+                rationale: "Atrial flutter typically presents with a counterclockwise re-entrant circuit showing \"sawtooth\" P-waves in leads II, III, and aVF, often with an atrial rate near 300 bpm.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 30: \"Atrial flutter (AFL) – typical counterclockwise... 'Sawtooth' appearance of p-waves in II, III, aVF\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 4: Interpret ECG examples",
+                fullLO: "LO 4: Interpret ECG examples",
+                question: "A patient is being monitored in the hospital. The telemetry monitor shows a normal sinus rhythm that suddenly stops, followed by a straight line (pause) lasting 6 seconds before a junctional escape beat occurs. The patient experienced syncope during this event. This finding is most consistent with:",
+                options: {
+                    A: "1st degree AV block",
+                    B: "Atrial Fibrillation",
+                    C: "Mobitz Type I AV block",
+                    D: "Sinus node arrest",
+                    E: "Ventricular Fibrillation"
+                },
+                correctAnswer: "D",
+                rationale: "Sinus node arrest is characterized by a pause with no P-waves visible. Syncope is likely if the pause is >5-7 seconds.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 14: \"Sinus node arrest (syncope likely if >5-7 seconds)... No P-waves visible during pause\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 5: Review anti-arrhythmic drug (AAD) therapies",
+                fullLO: "LO 5: Review anti-arrhythmic drug (AAD) therapies",
+                question: "A patient presents with Paroxysmal Supraventricular Tachycardia (PSVT) that is hemodynamically stable. The physician attempts a vagal maneuver without success. The next step is the administration of an IV medication that causes transient complete AV block for a few seconds. Which medication is indicated?",
+                options: {
+                    A: "Adenosine",
+                    B: "Amiodarone",
+                    C: "Atropine",
+                    D: "Lidocaine",
+                    E: "Procainamide"
+                },
+                correctAnswer: "A",
+                rationale: "IV adenosine is used for acute treatment of PSVT. It causes transient complete AV block for a few seconds to terminate AVNRT or AVRT.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 27: \"PSVT - Acute Treatment... IV adenosine... Transient complete AV block for a few seconds\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 5: Review anti-arrhythmic drug (AAD) therapies",
+                fullLO: "LO 5: Review anti-arrhythmic drug (AAD) therapies",
+                question: "A patient with rapid Atrial Fibrillation requires rate control. The patient has a Left Ventricular Ejection Fraction (LVEF) of 50%. Which of the following medications is an appropriate choice for controlling the ventricular rate in this patient?",
+                options: {
+                    A: "Adenosine",
+                    B: "Atropine",
+                    C: "Diltiazem",
+                    D: "Flecainide",
+                    E: "Lidocaine"
+                },
+                correctAnswer: "C",
+                rationale: "Rate control for AF involves beta-blockers or non-dihydropyridine CCBs (like diltiazem/verapamil) if LVEF is >45%. Digoxin is also an option.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 33: \"Rate control <110 bpm (beta-blockers, diltiazem/verapamil if LVEF >45%, digoxin)\""
+            },
+            {
+                section: "Management of Cardiac Arrhythmias",
+                maskedLO: "LO 5: Review anti-arrhythmic drug (AAD) therapies",
+                fullLO: "LO 5: Review anti-arrhythmic drug (AAD) therapies",
+                question: "A patient with structural heart disease and an Implantable Cardioverter Defibrillator (ICD) is experiencing recurrent shocks due to Ventricular Tachycardia (VT). Which anti-arrhythmic medication is most appropriate to suppress the arrhythmia and reduce ICD shocks?",
+                options: {
+                    A: "Adenosine",
+                    B: "Amiodarone",
+                    C: "Atropine",
+                    D: "Digoxin",
+                    E: "Diltiazem"
+                },
+                correctAnswer: "B",
+                rationale: "For chronic VT treatment and recurrent ICD shocks, Amiodarone or Sotalol are used for suppression.",
+                source: "Management_of_Cardiac_Arrhythmias_PDF.pdf, Slide 36: \"Recurrent ICD shocks: ... Amiodarone or sotalol for suppression\""
+            },
+
+            // --- Section 2: Valvular Heart Disease ---
             {
                 section: "Valvular Heart Disease",
                 maskedLO: "Inferred LO: Identify the clinical findings, causes, and management of [specific valve disorder].",
@@ -776,7 +1043,7 @@
                 source: "Anti-arrhythmic_Agents_PDF.pdf, Page 26: \"Adverse Effects... Lupus erythematosis-like (auto-immune) syndrome may occur.\""
             },
 
-            // --- Section 3: Congenital Heart Disease (A. Barrett) ---
+            // --- Section 4: Congenital Heart Disease (A. Barrett) ---
             {
                 section: "Congenital Heart Disease (A. Barrett)",
                 maskedLO: "LO 1: Discuss the pathology related to noncyanotic congenital heart malformations.",
@@ -874,7 +1141,7 @@
                 source: "Congenital_Heart_Disease_PDF_Barrett.pdf, Page 23: \"Transposition of Great Arteries (TGA)... Anatomy: Aorta arises from right ventricle... Pulmonary artery arises from left ventricle\""
             },
 
-            // --- Section 4: Congenital Heart Disease (Sturgis) ---
+            // --- Section 5: Congenital Heart Disease (Sturgis) ---
             {
                 section: "Congenital Heart Disease (Sturgis)",
                 maskedLO: "LO 3: Describe and recognize characteristic clinical presentations of major heart defects.",
@@ -1056,7 +1323,10 @@
                 // Question Text
                 const qText = document.createElement('div');
                 qText.className = 'question-text';
-                qText.textContent = `${index + 1}. ${item.question}`;
+                
+                // Allow HTML inside question text (for tables)
+                qText.innerHTML = `${index + 1}. ${item.question}`;
+                
                 card.appendChild(qText);
 
                 // Options Container
