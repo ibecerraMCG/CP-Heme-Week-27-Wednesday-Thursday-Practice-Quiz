@@ -674,198 +674,246 @@
             // --- Section 2: Valvular Heart Disease ---
             {
                 section: "Valvular Heart Disease",
-                maskedLO: "Inferred LO: Identify the clinical findings, causes, and management of [specific valve disorder].",
-                fullLO: "Inferred LO: Identify the clinical findings, causes, and management of Aortic Stenosis.",
-                question: "A 78-year-old male presents with exertional syncope. Physical examination reveals a late-peaking systolic murmur at the right upper sternal border and a diminished second heart sound (S2). Carotid pulses are weak and delayed (pulsus parvus et tardus). Which of the following is the most likely etiology of this patient's valvular pathology?",
+                maskedLO: "LO 1: Know ausculatory findings of aortic stenosis and differentiate mild, moderate and severe aortic stenosis on physical exam.",
+                fullLO: "LO 1: Know ausculatory findings of aortic stenosis and differentiate mild, moderate and severe aortic stenosis on physical exam",
+                question: "A 75-year-old patient is evaluated for a systolic murmur. On physical exam, the murmur is late-peaking, and the second heart sound (S2) is single and soft. The carotid upstroke is delayed and diminished in amplitude (pulsus parvus et tardus). These physical exam findings are most consistent with which degree of aortic stenosis?",
                 options: {
-                    A: "Bicuspid aortic valve",
-                    B: "Degenerative calcification (senile)",
+                    A: "Mild",
+                    B: "Moderate",
+                    C: "Severe",
+                    D: "Sclerosis without stenosis",
+                    E: "Insignificant"
+                },
+                correctAnswer: "C",
+                rationale: "Severe aortic stenosis is differentiated from mild/moderate forms by specific physical exam findings: a late-peaking systolic murmur (vs early peaking), a diminished or absent aortic component of S2 (single S2), and a delayed carotid upstroke (pulsus parvus).",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 21: \"Typical exam findings: Late-peaking systolic murmur... Diminished or absent aortic component of the S2 (A2)... Delay in the carotid upstroke... Symptoms and exam suggest severe AS\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "LO 1: Know ausculatory findings of aortic stenosis and differentiate mild, moderate and severe aortic stenosis on physical exam.",
+                fullLO: "LO 1: Know ausculatory findings of aortic stenosis and differentiate mild, moderate and severe aortic stenosis on physical exam",
+                question: "A 68-year-old male presents for a routine physical. A crescendo-decrescendo systolic murmur is heard at the right upper sternal border. The carotid upstroke is brisk and normal in volume. The murmur peaks early in systole. Based on these findings, the aortic stenosis is most likely:",
+                options: {
+                    A: "Critical",
+                    B: "Mild to Moderate",
+                    C: "Severe",
+                    D: "Symptomatic",
+                    E: "Very Severe"
+                },
+                correctAnswer: "B",
+                rationale: "The timing of the murmur peak correlates with severity. Early-peaking murmurs with preserved carotid upstrokes suggest mild to moderate stenosis, whereas late-peaking murmurs with delayed upstrokes suggest severe stenosis.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 28 & 21: \"Early-peaking SEM (large stroke volume) -> late peaking SEM would be AS [severe]\" & \"Delay in the carotid upstroke (pulsus parvus)... Symptoms and exam suggest severe AS\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "LO 1: Know ausculatory findings of aortic stenosis and differentiate mild, moderate and severe aortic stenosis on physical exam.",
+                fullLO: "LO 1: Know ausculatory findings of aortic stenosis and differentiate mild, moderate and severe aortic stenosis on physical exam",
+                question: "A medical student is examining a patient with aortic stenosis. The attending physician asks the student to palpate the carotid artery while listening to the heart. A \"pulsus parvus et tardus\" is identified. This finding represents:",
+                options: {
+                    A: "A bounding, forceful pulse",
+                    B: "An alternating strong and weak pulse",
+                    C: "A weak and delayed pulse",
+                    D: "A pulse with two systolic peaks",
+                    E: "A normal pulse"
+                },
+                correctAnswer: "C",
+                rationale: "\"Pulsus parvus\" refers to decreased pulse amplitude (weak/low cardiac output), and \"pulsus tardus\" refers to a delay in the upstroke. This is a hallmark of severe aortic stenosis.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 21: \"Delay in the carotid upstroke (pulsus parvus)... Decreased pulse amplitude -> due to low cardiac output (pulsus parvus)\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "LO 2: Know difference between patient populations with senile versus bicuspid aortic valve stenosis.",
+                fullLO: "LO 2: Know difference between patient populations with senile versus bicuspid aortic valve stenosis",
+                question: "A 58-year-old male presents with exertional dyspnea and is found to have severe aortic stenosis. He has no other significant medical history. Based on his age at presentation (<65 years), what is the most likely underlying etiology of his valvular disease?",
+                options: {
+                    A: "Calcific degeneration of a tricuspid valve (Senile)",
+                    B: "Congenital bicuspid aortic valve",
                     C: "Infective endocarditis",
                     D: "Rheumatic heart disease",
-                    E: "Syphilitic aortitis"
-                },
-                correctAnswer: "B",
-                rationale: "Degenerative aortic stenosis is the most common cause of aortic stenosis, particularly in patients aged 65 years and older. Bicuspid valves typically present earlier (60s), while rheumatic disease almost always involves the mitral valve.",
-                source: "Valvular_Heart_Disease_PDF.pdf, Page 15: \"Degenerative aortic stenosis (senile) -> most common... Severe AS in ~3% of persons aged 65 years and older\""
-            },
-            {
-                section: "Valvular Heart Disease",
-                maskedLO: "Inferred LO: Identify the clinical findings, causes, and management of [specific valve disorder].",
-                fullLO: "Inferred LO: Identify the clinical findings, causes, and management of Aortic Stenosis.",
-                question: "A 72-year-old female with severe aortic stenosis (valve area 0.7 cm²) reports increasing dyspnea while walking. She is evaluated by the heart team and found to have a high surgical risk due to comorbidities (STS score > 8%). Which intervention is most appropriate for this patient?",
-                options: {
-                    A: "Balloon valvuloplasty",
-                    B: "Medical management with ACE inhibitors",
-                    C: "Surgical Aortic Valve Replacement (SAVR)",
-                    D: "Transcatheter Aortic Valve Replacement (TAVR)",
-                    E: "Watchful waiting"
-                },
-                correctAnswer: "D",
-                rationale: "For patients with severe symptomatic aortic stenosis, valve replacement is indicated. The choice between SAVR and TAVR is based on surgical risk; TAVR is often preferred or equivalent in high-risk patients.",
-                source: "Valvular_Heart_Disease_PDF.pdf, Page 24: \"The choice between surgical and transcatheter interventions is based on the patient's surgical risk... SAVR and TAVR have similar procedural and long-term survival rates\""
-            },
-            {
-                section: "Valvular Heart Disease",
-                maskedLO: "Inferred LO: Identify the clinical findings, causes, and management of [specific valve disorder].",
-                fullLO: "Inferred LO: Identify the clinical findings, causes, and management of Aortic Stenosis.",
-                question: "A patient with severe aortic stenosis is asymptomatic. An exercise stress test is performed, which the patient tolerates poorly, developing hypotension and arrhythmia. Based on these findings, which of the following is the most appropriate management recommendation?",
-                options: {
-                    A: "Annual echocardiogram",
-                    B: "Beta-blocker therapy",
-                    C: "Consideration for Aortic Valve Replacement (AVR)",
-                    D: "Diuretic therapy",
-                    E: "Restriction of physical activity only"
-                },
-                correctAnswer: "C",
-                rationale: "AVR can be considered in asymptomatic patients with abnormal results on supervised exercise testing, such as poor exercise tolerance, arrhythmia, or hypotension.",
-                source: "Valvular_Heart_Disease_PDF.pdf, Page 23: \"AVR can be considered in asymptomatic patients with abnormal results on supervised exercise testing... abnormal electrocardiographic changes, arrhythmia or hypotension during testing\""
-            },
-            {
-                section: "Valvular Heart Disease",
-                maskedLO: "Inferred LO: Identify the clinical findings and pathophysiology of [specific valve disorder].",
-                fullLO: "Inferred LO: Identify the clinical findings and pathophysiology of Mitral Regurgitation.",
-                question: "A 55-year-old male presents with worsening heart failure symptoms. He has a history of dilated cardiomyopathy with an ejection fraction of 30%. Echocardiography shows the mitral valve leaflets are structurally normal, but there is significant regurgitation due to dilation of the mitral annulus and tethering of the leaflets. This type of mitral regurgitation is best classified as:",
-                options: {
-                    A: "Acute primary",
-                    B: "Acute secondary",
-                    C: "Chronic primary",
-                    D: "Chronic secondary",
-                    E: "Rheumatic"
-                },
-                correctAnswer: "D",
-                rationale: "Secondary mitral regurgitation is not a valve problem but a ventricular problem (e.g., cardiomyopathy) leading to annular dilation and leaflet tethering/impaired coaptation.",
-                source: "Valvular_Heart_Disease_PDF.pdf, Page 41: \"Chronic secondary mitral regurgitation: Not a valve problem, but a ventricular or atrial problem... LV cardiomyopathy causing ventricular enlargement and annular dilation... incomplete leaflet coaptation\""
-            },
-            {
-                section: "Valvular Heart Disease",
-                maskedLO: "Inferred LO: Identify the clinical findings and pathophysiology of [specific valve disorder].",
-                fullLO: "Inferred LO: Identify the clinical findings and pathophysiology of Mitral Regurgitation.",
-                question: "A 24-year-old female presents with palpitations. On auscultation, a mid-systolic click is heard, followed by a late systolic murmur. The murmur intensity increases with standing. What is the underlying pathology of the mitral valve leaflets in this condition?",
-                options: {
-                    A: "Calcification",
-                    B: "Endocardial cushion defect",
-                    C: "Fibrotic thickening",
-                    D: "Myxomatous degeneration",
-                    E: "Vegetations"
-                },
-                correctAnswer: "D",
-                rationale: "This presentation is classic for Mitral Valve Prolapse (MVP). The morphology involves intrinsic accumulation of loose (myxomatous) connective tissue within the leaflets.",
-                source: "Valvular_Heart_Disease_PDF.pdf, Page 45: \"Mitral Valve Prolapse... Morphology: Intrinsic accumulation of loose (myxomatous) connective tissue within leaflets\""
-            },
-            {
-                section: "Valvular Heart Disease",
-                maskedLO: "Inferred LO: Identify the clinical findings and pathophysiology of [specific valve disorder].",
-                fullLO: "Inferred LO: Identify the clinical findings and pathophysiology of Mitral Regurgitation.",
-                question: "A patient with severe primary mitral regurgitation is asymptomatic. Echocardiography reveals a Left Ventricular Ejection Fraction (LVEF) of 55%. Which of the following is the correct interpretation and management based on this finding?",
-                options: {
-                    A: "LVEF is normal; continue observation.",
-                    B: "LVEF is normal; initiate beta-blocker therapy.",
-                    C: "LVEF indicates LV dysfunction; consider surgery.",
-                    D: "LVEF indicates severe dysfunction; surgery is contraindicated.",
-                    E: "LVEF is irrelevant in mitral regurgitation."
-                },
-                correctAnswer: "C",
-                rationale: "In severe primary mitral regurgitation, an LVEF < 60% indicates a decline in LV function and is an indication for intervention, as the \"normal\" EF in MR should be higher due to unloading into the left atrium.",
-                source: "Valvular_Heart_Disease_PDF.pdf, Page 47: \"Look for decline in LV function (<60%)... Symptomatic, chronic severe primary mitral regurgitation generally do poorly without intervention\""
-            },
-            {
-                section: "Valvular Heart Disease",
-                maskedLO: "Inferred LO: Identify the clinical findings and pathophysiology of [specific valve disorder].",
-                fullLO: "Inferred LO: Identify the clinical findings and pathophysiology of Aortic Regurgitation.",
-                question: "A 60-year-old male presents for a routine checkup. Physical examination reveals a bounding peripheral pulse and a widened pulse pressure. Auscultation demonstrates a diastolic decrescendo murmur heard best along the left sternal border. Which of the following hemodynamic changes is the primary cause of the physical findings in this patient?",
-                options: {
-                    A: "Impaired ventricular filling in diastole",
-                    B: "Increased left ventricular stroke volume",
-                    C: "Increased pulmonary vascular resistance",
-                    D: "Left ventricular concentric hypertrophy",
-                    E: "Right ventricular pressure overload"
-                },
-                correctAnswer: "B",
-                rationale: "In chronic aortic regurgitation, the physical exam findings (bounding pulses) result from the large stroke volume and left ventricular dilatation caused by volume overload.",
-                source: "Valvular_Heart_Disease_PDF.pdf, Page 28: \"Physical exam: Results from the large stroke volume and LV dilatation... Bounding peripheral pulses... Diastolic decrescendo murmur\""
-            },
-            {
-                section: "Valvular Heart Disease",
-                maskedLO: "Inferred LO: Identify the clinical findings and pathophysiology of [specific valve disorder].",
-                fullLO: "Inferred LO: Identify the clinical findings and pathophysiology of Aortic Regurgitation.",
-                question: "A 45-year-old male presents to the emergency department with severe, tearing chest pain radiating to the back. He is hypotensive and dyspneic. Auscultation reveals a new soft, short diastolic murmur. Which of the following is the most likely etiology of this valvular pathology?",
-                options: {
-                    A: "Aortic dissection",
-                    B: "Bicuspid aortic valve",
-                    C: "Calcific degeneration",
-                    D: "Rheumatic valvular disease",
                     E: "Systemic lupus erythematosus"
                 },
-                correctAnswer: "A",
-                rationale: "Acute aortic regurgitation due to aortic dissection is a surgical emergency. The murmur in acute AR may be soft or short due to rapid equalization of pressures.",
-                source: "Valvular_Heart_Disease_PDF.pdf, Pages 27 & 30: \"Acute aortic regurgitation due to aortic dissection is a surgical emergency... Causes of aortic regurgitation: Ascending aortic root dilatation... Aortic dissection\""
-            },
-            {
-                section: "Valvular Heart Disease",
-                maskedLO: "Inferred LO: Identify the clinical findings and pathophysiology of [specific valve disorder].",
-                fullLO: "Inferred LO: Identify the clinical findings and pathophysiology of Aortic Regurgitation.",
-                question: "For a patient with chronic aortic regurgitation who is asymptomatic, which of the following echocardiographic findings would indicate the need for surgical intervention?",
-                options: {
-                    A: "Aortic valve area < 1.0 cm²",
-                    B: "Left ventricular end-systolic diameter > 50 mm",
-                    C: "Left ventricular end-diastolic diameter > 40 mm",
-                    D: "Left ventricular ejection fraction > 60%",
-                    E: "Mild aortic root dilation"
-                },
                 correctAnswer: "B",
-                rationale: "Indications for surgery in chronic aortic regurgitation include LV dysfunction (LVEF < 55%) or significant LV dilation, defined as an LV end-systolic diameter (LVESD) > 50mm.",
-                source: "Valvular_Heart_Disease_PDF.pdf, Page 30: \"Indications for surgery depend on: ... Degree of LV dilation (LV end systolic diameter 50mm or 5.0cm)\""
+                rationale: "Senile calcific aortic stenosis typically becomes symptomatic in patients aged 80-90 years. Congenital bicuspid aortic valve stenosis typically presents earlier, becoming symptomatic in 60-year-olds (or late 50s as in this case).",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 42: \"Idiopathic form [Senile]... Symptomatic in 80-90-year-olds... Congenital form associated with bicuspid valve... Symptomatic in 60-year-olds\""
             },
             {
                 section: "Valvular Heart Disease",
-                maskedLO: "Inferred LO: Identify the clinical findings and etiology of [specific valve disorder].",
-                fullLO: "Inferred LO: Identify the clinical findings and etiology of Mitral Stenosis.",
-                question: "A 35-year-old female who immigrated from a developing country presents with fatigue and lower extremity edema. Auscultation at the apex with the bell of the stethoscope reveals a low-pitched diastolic rumble following an opening snap. Which of the following is the most likely underlying etiology?",
+                maskedLO: "LO 2: Know difference between patient populations with senile versus bicuspid aortic valve stenosis.",
+                fullLO: "LO 2: Know difference between patient populations with senile versus bicuspid aortic valve stenosis",
+                question: "A 30-year-old male is diagnosed with a bicuspid aortic valve. In addition to monitoring for aortic stenosis, this patient should be screened for which associated condition?",
                 options: {
-                    A: "Calcific degeneration",
-                    B: "Infective endocarditis",
-                    C: "Mitral annular calcification",
+                    A: "Atrial septal defect",
+                    B: "Coarctation of the aorta",
+                    C: "Hypertrophic cardiomyopathy",
                     D: "Mitral valve prolapse",
-                    E: "Rheumatic heart disease"
-                },
-                correctAnswer: "E",
-                rationale: "The leading cause of mitral stenosis is rheumatic heart disease, characterized by an opening snap and diastolic rumble. It is frequent in populations with limited access to treatment for streptococcal pharyngitis.",
-                source: "Valvular_Heart_Disease_PDF.pdf, Pages 31 & 34: \"Leading cause of MS is rheumatic heart disease (RHD)... Typical findings: ... Diastolic opening snap... Diastolic rumble or low-pitched murmur at the apex\""
-            },
-            {
-                section: "Valvular Heart Disease",
-                maskedLO: "Inferred LO: Identify the clinical findings and etiology of [specific valve disorder].",
-                fullLO: "Inferred LO: Identify the clinical findings and etiology of Mitral Stenosis.",
-                question: "A pregnant patient presents with new onset shortness of breath. An echocardiogram reveals a mitral valve area of 1.2 cm². The physician explains that her symptoms are precipitated by the physiologic changes of pregnancy. Which hemodynamic change associated with pregnancy most directly exacerbates the gradient across the stenotic mitral valve?",
-                options: {
-                    A: "Decreased heart rate",
-                    B: "Increased blood volume and cardiac output",
-                    C: "Increased systemic vascular resistance",
-                    D: "Reduced pulmonary vascular resistance",
-                    E: "Systemic embolization"
+                    E: "Pulmonary stenosis"
                 },
                 correctAnswer: "B",
-                rationale: "Pregnancy involves increased blood volume and cardiac output, making blood flow across the stenotic mitral valve difficult to maintain, which increases the gradient.",
-                source: "Valvular_Heart_Disease_PDF.pdf, Page 33: \"Pregnancy: Increased blood volume and cardiac output -> blood flow across the mitral valve becomes difficult to maintain\""
+                rationale: "Bicuspid aortic valves are genetically associated with coarctation of the aorta and aortic aneurysms.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 15: \"Bicuspid aortic valve... Associated with coarctation of the aorta and aortic aneurysms\""
             },
             {
                 section: "Valvular Heart Disease",
-                maskedLO: "Inferred LO: Identify the clinical findings and etiology of [specific valve disorder].",
-                fullLO: "Inferred LO: Identify the clinical findings and etiology of Mitral Stenosis.",
-                question: "A patient with severe rheumatic mitral stenosis is symptomatic despite optimal medical therapy. The valve morphology is favorable (pliable, non-calcified). Which intervention is indicated and has a high success rate?",
+                maskedLO: "LO 2: Know difference between patient populations with senile versus bicuspid aortic valve stenosis.",
+                fullLO: "LO 2: Know difference between patient populations with senile versus bicuspid aortic valve stenosis",
+                question: "A 85-year-old female presents with syncope. Echocardiography reveals calcific aortic stenosis of a tricuspid aortic valve. This condition is best described as:",
                 options: {
-                    A: "Balloon aortic valvuloplasty",
-                    B: "Coronary artery bypass grafting",
-                    C: "Mitral valve replacement with a mechanical valve",
-                    D: "Percutaneous balloon mitral commissurotomy (PBMC)",
-                    E: "Transcatheter mitral valve repair (MitraClip)"
+                    A: "A congenital anomaly present since birth",
+                    B: "An autoimmune reaction to streptococcal infection",
+                    C: "A degenerative process related to aging and mechanical stress",
+                    D: "A result of chest wall radiation",
+                    E: "A consequence of infective endocarditis"
+                },
+                correctAnswer: "C",
+                rationale: "Senile (degenerative) aortic stenosis is a slow degenerative change secondary to mechanical stress and part of the aging process, typically symptomatic in 80-90 year olds.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 42: \"Calcific Aortic Stenosis... Slow degenerative changes secondary to mechanical stress... Idiopathic form as part of the aging process\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "LO 3: Know ausculatory findings of mitral stenosis and who is at risk of mitral stenosis.",
+                fullLO: "LO 3: Know ausculatory findings of mitral stenosis and who is at risk of mitral stenosis",
+                question: "A 40-year-old female who immigrated from a developing country presents with dyspnea. Physical exam reveals a loud S1 and a diastolic rumble at the apex following an opening snap. This patient is at highest risk for this condition due to a history of:",
+                options: {
+                    A: "Atherosclerosis",
+                    B: "Congenital bicuspid valve",
+                    C: "Intravenous drug use",
+                    D: "Untreated streptococcal pharyngitis",
+                    E: "Thoracic radiation"
                 },
                 correctAnswer: "D",
-                rationale: "PBMC is indicated for symptomatic patients with severe mitral stenosis and favorable valve morphology. It has a success rate of 95%.",
-                source: "Valvular_Heart_Disease_PDF.pdf, Page 35: \"Percutaneous balloon mitral commissurotomy (PBMC): Indicated for symptomatic patients with severe mitral stenosis... and favorable valve morphology... Success rate is 95%\""
+                rationale: "The leading cause of mitral stenosis is rheumatic heart disease, which is a sequela of Group A Streptococcus infection (strep throat).",
+                source: "Valvular_Heart_Disease_PDF.pdf, Pages 31 & 34: \"Leading cause of MS is rheumatic heart disease (RHD)... Frequent in populations with limited access to treatment for streptococcal pharyngitis... Typical findings: Loud S1... Opening snap... Diastolic rumble\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "LO 3: Know ausculatory findings of mitral stenosis and who is at risk of mitral stenosis.",
+                fullLO: "LO 3: Know ausculatory findings of mitral stenosis and who is at risk of mitral stenosis",
+                question: "During a cardiac exam, the physician uses the bell of the stethoscope at the apex of the heart to listen for a low-pitched murmur. A diastolic rumble is heard. Which additional sound is characteristically associated with this specific valvular lesion?",
+                options: {
+                    A: "Early systolic click",
+                    B: "Fourth heart sound (S4)",
+                    C: "Midsystolic click",
+                    D: "Opening snap",
+                    E: "Pericardial rub"
+                },
+                correctAnswer: "D",
+                rationale: "Mitral stenosis is characterized by an opening snap followed by a diastolic rumble. The opening snap is due to the opening of the stiff, stenotic valve.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 34: \"Typical findings: ... Diastolic opening snap... Diastolic rumble or low-pitched murmur at the apex\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "LO 3: Know ausculatory findings of mitral stenosis and who is at risk of mitral stenosis.",
+                fullLO: "LO 3: Know ausculatory findings of mitral stenosis and who is at risk of mitral stenosis",
+                question: "A patient with a history of rheumatic fever presents for evaluation. The pathologist describes a \"fishmouth\" deformity of the mitral valve leaflets. This deformity is the pathologic hallmark of:",
+                options: {
+                    A: "Acute rheumatic carditis",
+                    B: "Chronic rheumatic mitral stenosis",
+                    C: "Infective endocarditis",
+                    D: "Libman-Sacks endocarditis",
+                    E: "Mitral valve prolapse"
+                },
+                correctAnswer: "B",
+                rationale: "The \"fishmouth\" deformity is a classic description of the thickened, fibrotic, and fused valve leaflets seen in chronic rheumatic mitral stenosis.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 38: \"Most common cause of mitral stenosis in adults... 'Fishmouth' deformity of valve leaflets\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "LO 4: Know ausculatory findings in hypertrophic cardiomyopathy and the associated genetic abnormality.",
+                fullLO: "LO 4: Know ausculatory findings in hypertrophic cardiomyopathy and the associated genetic abnormality",
+                question: "A 22-year-old athlete is being evaluated for a systolic murmur. The murmur intensity increases when the patient performs a Valsalva maneuver. This auscultatory finding is characteristic of which condition?",
+                options: {
+                    A: "Aortic stenosis",
+                    B: "Hypertrophic obstructive cardiomyopathy",
+                    C: "Mitral regurgitation",
+                    D: "Pulmonic stenosis",
+                    E: "Tricuspid regurgitation"
+                },
+                correctAnswer: "B",
+                rationale: "The murmur of hypertrophic obstructive cardiomyopathy (HOCM) is augmented (increased) by maneuvers that decrease preload, such as the Valsalva maneuver, unlike aortic stenosis which decreases.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 52: \"Amyl nitrite... Augments murmurs of hypertrophic obstructive cardiomyopathy... Valsalva maneuver... Augments murmur of hypertrophic obstructive cardiomyopathy\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "LO 4: Know ausculatory findings in hypertrophic cardiomyopathy and the associated genetic abnormality.",
+                fullLO: "LO 4: Know ausculatory findings in hypertrophic cardiomyopathy and the associated genetic abnormality",
+                question: "A patient diagnosed with Hypertrophic Cardiomyopathy (HCM) is found to have a genetic mutation. Which gene is most commonly affected in this condition?",
+                options: {
+                    A: "Alpha-galactosidase A",
+                    B: "Beta-myosin heavy chain",
+                    C: "Fibrillin-1",
+                    D: "LDL receptor",
+                    E: "Type I collagen"
+                },
+                correctAnswer: "B",
+                rationale: "HCM is 100% genetic, involving point mutations in genes coding for sarcomeric proteins. The most commonly found mutation is in the gene encoding beta-myosin heavy chain.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 20: \"Hypertrophic Cardiomyopathy... Most commonly found in gene encoding beta myosin heavy chain\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "LO 4: Know ausculatory findings in hypertrophic cardiomyopathy and the associated genetic abnormality.",
+                fullLO: "LO 4: Know ausculatory findings in hypertrophic cardiomyopathy and the associated genetic abnormality",
+                question: "A young male presents with a family history of sudden cardiac death. Genetic testing confirms an autosomal dominant mutation associated with Hypertrophic Cardiomyopathy. The pathology of his heart is expected to show:",
+                options: {
+                    A: "Concentric hypertrophy with amyloid deposition",
+                    B: "Dilated ventricles with thin walls",
+                    C: "Fatty infiltration of the right ventricle",
+                    D: "Massive left ventricular hypertrophy without dilatation and myofiber disarray",
+                    E: "Valvular vegetations"
+                },
+                correctAnswer: "D",
+                rationale: "HCM is characterized by massive LV hypertrophy (often asymmetrical septal hypertrophy) in the absence of dilatation, and histologically by myofiber disarray.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Pages 12 & 17: \"Massive left ventricular hypertrophy in the absence of left ventricular dilatation... Haphazard disarray of myocardial cells (myofiber disarray)\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "LO 5: Know ausculatory findings of mitral valve prolapse and mitral regurgitation...",
+                fullLO: "LO 5: Know ausculatory findings of mitral valve prolapse and mitral regurgitation along with the effect of preload maneuvers on the murmur",
+                question: "A 25-year-old female is evaluated for palpitations. Auscultation reveals a mid-systolic click followed by a late systolic murmur. When the patient stands up from a squatting position (decreasing preload), what change in the auscultatory findings is expected?",
+                options: {
+                    A: "The click and murmur move earlier in systole (closer to S1)",
+                    B: "The click and murmur move later in systole (closer to S2)",
+                    C: "The murmur disappears completely",
+                    D: "The murmur becomes diastolic",
+                    E: "No change in timing occurs"
+                },
+                correctAnswer: "A",
+                rationale: "Decreasing preload (standing, Valsalva) reduces LV volume, causing the prolapse to occur earlier in systole. Thus, the click and murmur move closer to S1. Conversely, squatting (increasing preload) delays the onset (moves them later/closer to S2).",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 52 & Standard Physiology Context: \"Systolic click in mitral valve prolapse: S3; apical impulse hyperdynamic and may be displaced... Squatting... Reduces murmur of hypertrophic obstructive cardiomyopathy and mitral valve prolapse\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "LO 5: Know ausculatory findings of mitral valve prolapse and mitral regurgitation...",
+                fullLO: "LO 5: Know ausculatory findings of mitral valve prolapse and mitral regurgitation along with the effect of preload maneuvers on the murmur",
+                question: "A patient presents with a blowing holosystolic murmur heard best at the apex, radiating to the axilla. The physician asks the patient to perform an isometric handgrip exercise (increasing afterload). How will this maneuver affect the murmur?",
+                options: {
+                    A: "The murmur will decrease in intensity",
+                    B: "The murmur will increase in intensity",
+                    C: "The murmur will disappear",
+                    D: "The murmur will become diastolic",
+                    E: "The murmur will not change"
+                },
+                correctAnswer: "B",
+                rationale: "Mitral regurgitation presents with a blowing holosystolic murmur at the apex. Increasing afterload (isometric handgrip) increases the pressure gradient between the LV and LA, thereby increasing the regurgitant flow and the intensity of the murmur.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Pages 10 & 52: \"Mitral regurgitation: Systolic: holo-, mid-, or late... Blowing... Isometric handgrip: Augments murmurs of mitral regurgitation\""
+            },
+            {
+                section: "Valvular Heart Disease",
+                maskedLO: "LO 5: Know ausculatory findings of mitral valve prolapse and mitral regurgitation...",
+                fullLO: "LO 5: Know ausculatory findings of mitral valve prolapse and mitral regurgitation along with the effect of preload maneuvers on the murmur",
+                question: "A patient has a \"floppy\" mitral valve with myxomatous degeneration. On exam, a systolic click is heard. This click typically occurs:",
+                options: {
+                    A: "Immediately after S2",
+                    B: "Just before S1",
+                    C: "Mid-to-late systole",
+                    D: "Throughout diastole",
+                    E: "With atrial contraction"
+                },
+                correctAnswer: "C",
+                rationale: "Mitral valve prolapse is characterized by a mid-systolic click (due to the sudden tensing of the chordae as the leaflets prolapse) followed by a late systolic murmur.",
+                source: "Valvular_Heart_Disease_PDF.pdf, Page 52: \"Systolic click in mitral valve prolapse... moves onset of clicks and murmur... Systolic: holo-, mid-, or late\""
             },
 
-            // --- Section 2: Cardiac Antiarrhythmics ---
+            // --- Section 3: Cardiac Antiarrhythmics ---
             {
                 section: "Cardiac Antiarrhythmics",
                 maskedLO: "LO 1: Understand classification of anti-arrhythmic agents and the general properties of classes. (Subobjective: Class I Agents)",
